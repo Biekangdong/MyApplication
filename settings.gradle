@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "MyApplication"
+include ':app'
+include ':algorithm'
+include ':aidlservice'
+include ':jniapp'
+include ':signalr'
+include ':rxjava'
+include ':jitpacklibrary'
