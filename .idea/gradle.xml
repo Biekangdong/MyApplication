@@ -13,6 +13,8 @@
             <option value="$PROJECT_DIR$/aidlservice" />
             <option value="$PROJECT_DIR$/algorithm" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/coordinatorlayout" />
+            <option value="$PROJECT_DIR$/googleapplication" />
             <option value="$PROJECT_DIR$/ipscan" />
             <option value="$PROJECT_DIR$/jniapp" />
             <option value="$PROJECT_DIR$/jsweview" />

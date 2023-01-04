@@ -4,16 +4,16 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.algorithm",
+  "applicationId": "com.ruanmeng.lensunc",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 2,
-      "versionName": "1.2",
-      "outputFile": "algorithm-release.apk"
+      "versionCode": 1,
+      "versionName": "1.0",
+      "outputFile": "googleapplication-release.apk"
     }
   ],
   "elementType": "File"
