@@ -19,11 +19,13 @@
             <option value="$PROJECT_DIR$/jniapp" />
             <option value="$PROJECT_DIR$/jsweview" />
             <option value="$PROJECT_DIR$/launchericon" />
+            <option value="$PROJECT_DIR$/nativelib" />
             <option value="$PROJECT_DIR$/nohttp" />
             <option value="$PROJECT_DIR$/reflect" />
             <option value="$PROJECT_DIR$/rxjava" />
             <option value="$PROJECT_DIR$/signalr" />
             <option value="$PROJECT_DIR$/svgtest" />
+            <option value="$PROJECT_DIR$/utils" />
             <option value="$PROJECT_DIR$/voicechanger" />
           </set>
         </option>
