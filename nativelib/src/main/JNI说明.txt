@@ -1,0 +1,343 @@
+一、JNI简介
+JNI 是Java Native Interface的缩写，表示"Java本地调用"。通过JNI技术可以实现Java调用C程序和C程序调用Java代码。
+
+二、JNI函数注册
+2.1 静态注册：
+    静态注册的方式我们平时用的比较多。我们通过javac和javah编译出头文件，然后再实现对应的cpp文件的方式就是属于静态注册的方式。这种调用的方式是由于JVM按照默认的映射规则来匹配对应的native函数，如果没匹配，则会报错
+
+    //Java 层代码JniSdk.java
+    public class NativeDemo {
+        static {
+            System.loadLibrary("test_jni");
+        }
+        public native String showJniMessage();
+    }
+
+
+    //Native层代码 jnidemo.cpp
+    extern "C"
+    JNIEXPORT jstring JNICALL Java_NativeDemo_showJniMessage
+      (JNIEnv* env, jobject job) {
+        return env->NewStringUTF("hello world");
+    }
+
+    JNIEXPORT ：在Jni编程中所有本地语言实现Jni接口的方法前面都有一个"JNIEXPORT",这个可以看做是Jni的一个标志，至今为止没发现它有什么特殊的用处。
+
+    jstring ：这个学过编程的人都知道，当然是方法的返回值了，对应java的String类型，无返回值就是void
+
+    JNICALL ：这个可以理解为Jni 和Call两个部分，和起来的意思就是 Jni调用XXX（后面的XXX就是JAVA的方法名）。
+
+    Java_NativeDemo_sayHello：这个就是被上一步中被调用的部分，也就是Java中的native 方法名，这里起名字的方式比较特别，是：包名+类名+方法名。
+
+    JNIEnv * env：这个env可以看做是Jni接口本身的一个对象，jni.h头文件中存在着大量被封装好的函数，这些函数也是Jni编程中经常被使用到的，要想调用这些函数就需要使用JNIEnv这个对象。例如：env->GetObjectClass()。（详情请查看jni.h）
+
+    jobject obj：代表着native方法的调用者,本例即new NativeDemo();但如果native是静态的,那就是NativeDemo.class　.
+
+    也就是说，我们的native sayHello（）方法实际上是运行C的Java_NativeDemo_sayHello（）这个方法，我们是不能随意写C函数名的的，只能这样写。
+
+2.2 动态注册
+    动态注册不再按照特定的规则去实现native函数，只要在.c文件里面根据对应的规则声明函数即可，所以我们可以不用默认的映射规则，直接由我们告诉JVM，java的native函数对应的是C文件里面的哪个函数。
+
+    //Java 层代码JniSdk.java
+    public class JniSdk {
+        static {
+            System.loadLibrary("test_jni");
+        }
+        public static native int numAdd(int a, int b);
+        public native void dumpMessage();
+    }
+
+    //Native层代码 jnidemo.cpp
+    JNINativeMethod g_methods[] = {
+            {"numAdd", "(II)I", (void*)add},
+            {"dumpMessage","()V",(void*)dump},
+    };
+
+    jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+        j_vm = vm;
+        JNIEnv *env = NULL;
+        if (vm->GetEnv((void**)&env, JNI_VERSION_1_2) != JNI_OK) {
+            LOGI("on jni load , get env failed");
+            return JNI_VERSION_1_2;
+        }
+        jclass clazz = env->FindClass("com/example/dragon/androidstudy/jnidemo/JniSdk");
+        //clazz对应的类名的完整路径。把.换成/   g_methods定义的全局变量     1  是g_methods的数组长度。也可以用sizeof(g_methods)/sizeof(g_methods[0])
+        jint ret = env->RegisterNatives(clazz, g_methods, 2);
+        if (ret != 0) {
+            LOGI("register native methods failed");
+        }
+        return JNI_VERSION_1_2;
+    }
+
+    上面的JNI_OnLoad函数是在我们通过System.loadlibrary函数的时候，JVM会回调的一个函数，我们就是在这里做的动态注册的事情，通过env->RegisterNatives注册。
+
+     这里主要讲解一下g_methods对象，下面是JNINativeMethods结构体的定义
+     typedef struct {
+         const char* name;   //对应java中native的函数名
+         const char* signature;  //java中native函数的函数签名
+         void*       fnPtr;  //C这边实现的函数指针
+     } JNINativeMethod;
+
+     其中signature指的是函数的签名
+
+
+
+三、函数签名
+3.1 什么是函数签名：
+     所谓函数签名，简单点的理解可以理解成一个函数的唯一标识，一个签名对应着一个函数的签名。这个是一一对应的关系。有些人可能会问：函数名不能作为标识么？答案当然是否定的
+3.2 为什么需要函数的签名:
+    我们知道，java是支持函数重载的。一个类里面可以有多个同名但是不同参数的函数，所以函数名+参数名才唯一构成一个函数标识，因此我们需要针对参数做一个签名标识。这样jni层才能唯一识别到一个函数
+3.3 如何获取函数的签名
+    函数的签名是针对函数的参数以及返回值进行组成的。它遵循如下格式(参数类型1;参数类型2;参数类型3.....)返回值类型。例如我们上面的numAdd函数一样。他在java层的函数声明是
+
+3.4 public static native int numAdd(int a, int b);
+    两个参数都是int，并且返回值也是int，所以的函数签名是(II)I。
+
+3.5 public native void dumpMessage();
+    而dumpMessage函数没有任何参数，并且返回值也是空，所以它的签名是()V
+
+3.6 函数类型对应的签名的映射关系：
+    类型标识               	       Java类型
+    Z	                           boolean
+    B     	                       byte
+    C	                           char
+    S	                           short
+    I                              int
+    J	                           long
+    F	                           float
+    D	                           double
+    L/java/language/String	       String
+    [I        	                   int[]
+    [Ljava/lang/object             Object[]
+    V	                           void
+
+
+
+四、JNIEnv
+   JNIEnv贯穿了整个JNI技术的核心，java层调用native函数主要通过映射关系的建立，但jni函数调用java层的函数就要通过JNIEnv了
+4.1 何为JNIEnv：
+    JNIEnv是JVM内部维护的一个和线程相关的代表JNI环境的结构体，这个结构体是和线程相关的。并且C函数里面的线程与java函数中的线程是一一对应关系。也就是说，如果在java里的某个线程调用jni接口，不管调用多少个JNI接口，传递的JNIEnv都是同一个对象。因为这个时候java只有一个线程，对应的JNI也只有一个线程，而JNIEnv是跟线程绑定的，因此也只有一个
+4.2 通过JNIEnv调用java对象方法,通过JNIEnv调用方法大致可以分为以下两步：
+    a、获取到对象的class，并且通过class获取成员属性
+    b、通过成员属性设置获取对应的值或者调用对应的方法
+    public class JniSdk {
+        private int mIntArg = 5;
+        public int getArg() {
+            return mIntArg;
+        }
+    }
+
+    void dump(JNIEnv *env, jobject obj) {
+        LOGI("this is dump message call: %p", obj);
+        jclass jc = env->GetObjectClass(obj);
+        jmethodID  jmethodID1 = env->GetMethodID(jc,"getArg","()I");
+        jfieldID  jfieldID1 = env->GetFieldID(jc,"mIntArg","I");
+        jint  arg1 = env->GetIntField(obj,jfieldID1);
+        jint arg = env->CallIntMethod(obj, jmethodID1);
+        LOGI("show int filed: %d, %d",arg, arg1);
+    }
+    这边需要注意的一点是：如果jni方法是通过static方式调用的话，这边的jobject表示的是jclass对象，需要进行强转，并不表示一个独立的对象
+
+4.3 跨线程如何调用java方法
+    a,上面可以直接调用的原因是java调用到jni层的时候始终都在同一个线程，因此再jni层可以直接操作从java层传递下来的JNIEnv对象来实现各种操作。但是如果是在JNI层创建的一个额外的线程想调用Java方法呢？这个时候又该如何操作呢？
+    b,一个java线程和一个jni线程共同拥有一个JNIEnv,如果java线程调用native函数的时候，JVM还没有为这两个线程建立起映射关系，那么就会新创建一个JNIEnv并且传递到jni线程，如果之前已经有创建过映射关系。那么就直接采用原来的JNIEnv 。如上面所描述的那样，两个JNIEnv的对象是相同的。反之也一样，如果jni调用java线程的话，那么需要向JVM申请获取到已经映射的JNIEnv，如果之前未映射过的话。那么就重新创建一个，这个方法就是AttachCurrentThread。
+    JNIEnv *g_env;
+    void *func1(void* arg) {
+        LOGI("into another thread");
+        //使用全局保存的g_env，进行操作java对象的时候程序会崩溃
+        jmethodID  jmethodID1 = g_env->GetMethodID(jc,"getArg","()I");
+        jint arg = g_env->CallIntMethod(obj, jmethodID1);
+
+        //通过这种方法获取的env，然后再进行获取方法进行操作不会崩溃
+        JNIEnv *env;
+        j_vm->AttachCurrentThread(&env,NULL);
+    }
+
+    void dumpArg(JNIEnv *env, jobject call_obj, jobject arg_obj) {
+        LOGI("on dump arg function, env :%p", env);
+        g_env = env;
+        pthread_t *thread;
+        pthread_create(thread,NULL, func1, NULL);
+    }
+    上面表示JNIEnv跟每个线程是捆绑的，无法在线程B访问到线程A的JNIEnv，所以通过保存g_env的方式去使用是不行的。而是应该要通过AttachCurrentThread方法进行获取新的JNIEnv，然后再进行调用。
+
+
+五、垃圾回收
+   a，java创建的对象是由垃圾回收器来回收和释放内存的,但java的那种方式在jni那边是行不通的。在JNI层，如果使用ObjectA = ObjectB的方式来保存变量的话，这种是没办法保存变量的，随时会被回收，我们必须要通过env->NewGlobalRef和env->NewLocalRef的方式来创建，还有一个env->NewWeakGlobalRef（这种很少使用）
+   b，两种的生命周期的情况如下：
+   NewLocalRef创建的变量再函数调用结束后会被释放掉
+   NewGlobalRef创建的变量除非手动delete掉，否则会一直存在
+
+
+六、JNIEnv操作Java端的代码，主要方法：
+   函数名称	              作用
+   NewObject	          创建Java类中的对象
+   NewString	          创建Java类中的String对象
+   NewArray	              创建类型为Type的数组对象
+   GetField	              获得类型为Type的字段
+   SetField	              设置类型为Type的字段
+   GetStaticField	      获得类型为Type的static的字段
+   SetStaticField	      设置类型为Type的static的字段
+   CallMethod	          调用返回值类型为Type的static方法
+   CallStaticMethod	      调用返回值类型为Type的static方法
+
+
+七、Java 、C/C++中的常用数据类型的映射关系表：
+   JNI中定义的别名	        Java类型          	C/C++类型
+   jint / jsize               int	             int
+   jshort	                  short	             short
+   jlong	                  long	             long / long long (__int64)
+   jbyte	                  byte	             signed char
+   jboolean	                  boolean	         unsigned char
+   jchar	                  char	             unsigned short
+   jfloat                     float	             float
+   jdouble              	  double	         double
+   jobject              	  Object	         _jobject*
+
+
+八、函数类型对应的签名的映射关系：
+   Java类型	      字段描述符(签名)	          备注
+   int          	I	                  int的首字母、大写
+   float	        F	                  float的首字母、大写
+   double	        D	                  double的首字母、大写
+   short	        S	                  short的首字母、大写
+   long          	L	                  long的首字母、大写
+   char         	C	                  char的首字母、大写
+   byte         	B	                  byte的首字母、大写
+   boolean	        Z	                  因B已被byte使用，所以JNI规定使用Z
+   object	        L + /分隔完整类名	      String 如: Ljava/lang/String
+   array	        [ + 类型描述符	      int[] 如：[I
+
+   Java函数	       函数描述符(签名)	                    备注
+   void	V	       无返回值类型                            //////
+   Method	       (参数字段描述符...)返回值字段描述符	    int add(int a,int b) 如：(II)I
+
+
+九、JNI 打印日志
+9.1 Cmake文件中有log模块引用，不然编译不通过
+    # 编译一个库
+    add_library(
+        native-lib   # 库的名字
+        SHARED      # 动态库（.so库）
+        native-lib.cpp  # 需要编译的C++文件
+    )
+
+    # 相当于定义一个变量log-lib，引用安卓的打印模块
+    find_library(
+        log-lib
+        log
+    )
+
+    # 将变量log-lib连接到so库（我这边的so库名字是native-lib）中，这样这个库就能使用日志打印功能了
+    target_link_libraries(
+       native-lib
+       ${log-lib}
+    )
+
+9.2 然后在cpp文件中加入：
+    #include <android/log.h>
+    #define TAG "kang"
+    #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, TAG, __VA_ARGS__);
+    #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, TAG, __VA_ARGS__);
+    #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, TAG, __VA_ARGS__);
+
+9.3 使用日志打印：
+     extern "C" JNIEXPORT jstring JNICALL
+     Java_com_example_jnidemo_MainActivity_stringFromJNI(JNIEnv* env,jobject) {
+         std::string hello = "Hello from C++";
+         LOGD("jni打印(LOGD)")
+         LOGE("jni打印(LOGE)")
+         LOGI("jni打印(LOGI)")
+         return env->NewStringUTF(hello.c_str());
+     }
+
+
+
+
+
+
+
+
+
+     #include <jni.h>
+     #include <string>
+     #include <android/log.h>
+
+     #define TAG "DynamicNative"
+
+     extern "C" JNIEXPORT jstring
+
+     JNICALL
+     Java_com_yxf_dynamicnative_MainActivity_stringFromJNI(
+             JNIEnv *env,
+             jobject /* this */) {
+         std::string hello = "Hello from C++";
+         return env->NewStringUTF(hello.c_str());
+     }
+
+     static void logD(const char *str) {
+         __android_log_write(ANDROID_LOG_DEBUG, str, TAG);
+     }
+
+     static void logE(const char *str) {
+         __android_log_write(ANDROID_LOG_ERROR, str, TAG);
+     }
+
+     static bool registerNativeMethods(JNIEnv *env, const char *className, JNINativeMethod *methods) {
+         jclass clazz;
+         clazz = env->FindClass(className);
+         if (clazz == NULL) {
+             logE("the class we found is null , class name : ");
+             logE(className);
+             return false;
+         }
+         if (methods == NULL) {
+             logE("the methods is null");
+             return false;
+         }
+         int methodCount = sizeof(*methods) / sizeof(methods[0]);
+         int result = env->RegisterNatives(clazz, methods, methodCount);
+         char message[1024];
+         sprintf(message, "result : %d", result);
+         logD(message);
+         if (result == JNI_OK) {
+             return true;
+         } else {
+             return false;
+         }
+     }
+
+     static jstring getRepeatString(JNIEnv *env, jobject obj, jstring string_, jint repeatCount) {
+         using namespace std;
+         const char *str = env->GetStringUTFChars(string_, 0);
+         string cStr = string(str);
+         string result;
+         for (int i = 0; i < repeatCount; ++i) {
+             result = result + cStr;
+         }
+         env->ReleaseStringUTFChars(string_, str);
+         return env->NewStringUTF(result.c_str());
+     }
+
+     static JNINativeMethod methods[] = {
+             //Java Invoke C.
+             {"getRepeatString", "(Ljava/lang/String;I)Ljava/lang/String;", (void *) getRepeatString},
+     };
+
+     static const char *classPath = "com/yxf/dynamicnative/MainActivity";
+
+     jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+         //获得JNIEnv对象
+         void *env = NULL;
+         if (vm->GetEnv(&env, JNI_VERSION_1_6) != JNI_OK) {
+             logE("get JNIEnv failed ,register methods failed");
+             return -1;
+         }
+         //注册
+         if (registerNativeMethods((JNIEnv *) env, classPath, methods) != JNI_TRUE) {
+             logE("register methods failed");
+         } else {
+             logD("register methods successfully");
+         }
+         return JNI_VERSION_1_6;
+     }
