@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.bob.nativelib.JNITools;
 import com.bob.nativelib.JNITools2;
 import com.bob.nativelib.NativeLib;
+import com.bob.nativelib.TestCallBack;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tvText;
@@ -31,5 +32,10 @@ public class MainActivity extends AppCompatActivity {
         //动态注册c++库
         JNITools2 jniTools2=new JNITools2();
         tvText.setText(String.valueOf(jniTools2.add(200,200)));
+
+        //动态注册c++库
+        TestCallBack testCallBack=new TestCallBack();
+        testCallBack.callBackAdd();
+        tvText.setText(String.valueOf(testCallBack.add(600,600)));
     }
 }

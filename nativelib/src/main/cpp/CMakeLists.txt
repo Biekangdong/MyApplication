@@ -45,6 +45,17 @@ add_library(
         # 需要编译的C++文件
         dynamicnativelib2.cpp)
 
+add_library(
+        # 库的名字
+        jnitojava
+
+        # 动态库（.so库）
+        SHARED
+
+        # 需要编译的C++文件
+        jnitojava.cpp)
+
+
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
 # default, you only need to specify the name of the public NDK library
@@ -65,11 +76,23 @@ find_library( # Sets the name of the path variable.
 
 # 将变量log-lib连接到so库（我这边的so库名字是native-lib）中，这样这个库就能使用日志打印功能了
 target_link_libraries( # Specifies the target library.
-                       nativelib
+        nativelib
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib} )
+target_link_libraries( # Specifies the target library.
                        dynamicnativelib
-                       dynamicnativelib2
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
 
-
+target_link_libraries( # Specifies the target library.
+        dynamicnativelib2
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib} )
+target_link_libraries( # Specifies the target library.
+        jnitojava
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib} )
