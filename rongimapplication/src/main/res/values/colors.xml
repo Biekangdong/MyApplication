@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme">#899DCF</color>
+    <color name="matching_color1">#76C725</color>
+    <color name="matching_color2">#43C1F8</color>
+    <color name="matching_color3">#FF4D4D</color>
+    <color name="background">#E6E7E9</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

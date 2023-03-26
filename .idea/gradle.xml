@@ -14,8 +14,12 @@
             <option value="$PROJECT_DIR$/aidlservice" />
             <option value="$PROJECT_DIR$/algorithm" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/callkit" />
+            <option value="$PROJECT_DIR$/cardviewswitch" />
             <option value="$PROJECT_DIR$/coordinatorlayout" />
             <option value="$PROJECT_DIR$/googleapplication" />
+            <option value="$PROJECT_DIR$/googlemap" />
+            <option value="$PROJECT_DIR$/imkit" />
             <option value="$PROJECT_DIR$/ipscan" />
             <option value="$PROJECT_DIR$/jniapp" />
             <option value="$PROJECT_DIR$/jsweview" />
@@ -23,6 +27,7 @@
             <option value="$PROJECT_DIR$/nativelib" />
             <option value="$PROJECT_DIR$/nohttp" />
             <option value="$PROJECT_DIR$/reflect" />
+            <option value="$PROJECT_DIR$/rongimapplication" />
             <option value="$PROJECT_DIR$/rxjava" />
             <option value="$PROJECT_DIR$/signalr" />
             <option value="$PROJECT_DIR$/svgtest" />
