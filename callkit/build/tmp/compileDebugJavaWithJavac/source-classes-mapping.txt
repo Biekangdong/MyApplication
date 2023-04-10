@@ -1,2 +1,0 @@
-io/rong/callkit/BuildConfig.java
- io.rong.callkit.BuildConfig
