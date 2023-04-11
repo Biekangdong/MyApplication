@@ -1,0 +1,117 @@
+public class MainActivity extends AppCompatActivity  implements SeekBar.OnSeekBarChangeListener{
+    private static final int MAX_VALUE = 255;
+    private static final int MID_VALUE = 127;
+
+    private ImageView mImageView;
+    private float mHue, mSaturation, mLum;
+    private Bitmap mBitmap;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.shuicai);
+
+        mImageView = (ImageView) findViewById(R.id.imageview);
+        SeekBar seekBarHue = (SeekBar) findViewById(R.id.seekbarHue);
+        SeekBar seekBarSaturation = (SeekBar) findViewById(R.id.seekbarSaturation);
+        SeekBar seekBarLum = (SeekBar) findViewById(R.id.seekbarLum);
+
+        seekBarHue.setOnSeekBarChangeListener(this);
+        seekBarSaturation.setOnSeekBarChangeListener(this);
+        seekBarLum.setOnSeekBarChangeListener(this);
+
+        //设置最大值
+        seekBarHue.setMax(MAX_VALUE);
+        seekBarSaturation.setMax(MAX_VALUE);
+        seekBarLum.setMax(MAX_VALUE);
+
+        //设置进度
+        seekBarHue.setProgress(MID_VALUE);
+        seekBarSaturation.setProgress(MID_VALUE);
+        seekBarLum.setProgress(MID_VALUE);
+
+        mImageView.setImageBitmap(mBitmap);
+
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        switch (seekBar.getId()) {
+            case R.id.seekbarHue://色调
+                mHue = (progress - MID_VALUE) * 1.0f / MID_VALUE * 180;
+                break;
+            case R.id.seekbarSaturation://饱和度
+                mSaturation = progress * 1.0f / MID_VALUE;
+                break;
+            case R.id.seekbarLum://亮度
+                mLum = progress * 1.0f / MID_VALUE;
+                break;
+        }
+        mImageView.setImageBitmap(ImageHelper.handleImageEffect(mBitmap, mHue, mSaturation, mLum));
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class ImageHelper {
+    public static Bitmap handleImageEffect(Bitmap bm, float hue, float saturation, float lum) {
+        //设置颜色的色调
+        ColorMatrix hueMatrix = new ColorMatrix();
+        //第一个参数，系统分别使用0、1、2来代表Red、Green、Blue三种颜色的处理；而第二个参数，就是需要处理的值
+        hueMatrix.setRotate(0, hue);
+        hueMatrix.setRotate(1, hue);
+        hueMatrix.setRotate(2, hue);
+
+        //设置颜色的饱和度
+        ColorMatrix saturationMatrix = new ColorMatrix();
+        //saturation参数即代表设置颜色的饱和度的值，当饱和度为0时，图像就变成灰度图像了
+        saturationMatrix.setSaturation(saturation);
+
+        //设置颜色的亮度
+        ColorMatrix lumMatrix = new ColorMatrix();
+        lumMatrix.setScale(lum, lum, lum, 1);
+
+        //将矩阵的作用效果混合，从而叠加处理效果
+        ColorMatrix imageMatrix = new ColorMatrix();
+        imageMatrix.postConcat(hueMatrix);
+        imageMatrix.postConcat(saturationMatrix);
+        imageMatrix.postConcat(lumMatrix);
+
+        /**
+         * 设置好处理的颜色矩阵后，通过使用Paint类的setColorFilter()方法，将通过imageMatrix构造的
+         * ColorMatrixColorFilter对象传递进去，并使用这个画笔来绘制原来的图像，从而将颜色矩阵作用到原图中
+         */
+        Paint paint = new Paint();
+        paint.setColorFilter(new ColorMatrixColorFilter(imageMatrix));
+        /**
+         * Android系统也不允许直接修改原图，类似Photoshop中的锁定，必须通过原图创建一个同样大小的Bitmap，并将
+         * 原图绘制到该Bitmap中，以一个副本的形式来修改图像。
+         */
+        Bitmap bitmap = Bitmap.createBitmap(bm.getWidth(), bm.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawBitmap(bm, 0, 0 ,paint);
+        return bitmap;
+    }
+}
