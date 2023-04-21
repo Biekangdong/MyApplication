@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher3.LauncherRootView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/launcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.android.launcher3.dragndrop.DragLayer
+        android:id="@+id/drag_layer"
+        android:clipChildren="false"
+        android:importantForAccessibility="no"
+        android:clipToPadding="false"
+        android:background="@mipmap/workspace_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <com.android.launcher3.Workspace
+            android:id="@+id/workspace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            launcher:pageIndicator="@+id/page_indicator2">
+        </com.android.launcher3.Workspace>
+
+        <include layout="@layout/launcher_page_indicator2"
+            android:id="@+id/page_indicator2" />
+
+
+        <include layout="@layout/title2" />
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/blur_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeOverlayColor="#00000000"/>
+    </com.android.launcher3.dragndrop.DragLayer>
+
+</com.android.launcher3.LauncherRootView>

@@ -17,11 +17,13 @@
             <option value="$PROJECT_DIR$/bitmaptest" />
             <option value="$PROJECT_DIR$/cardviewswitch" />
             <option value="$PROJECT_DIR$/coordinatorlayout" />
+            <option value="$PROJECT_DIR$/customerlauncher3" />
             <option value="$PROJECT_DIR$/googleapplication" />
             <option value="$PROJECT_DIR$/googlemap" />
             <option value="$PROJECT_DIR$/ipscan" />
             <option value="$PROJECT_DIR$/jniapp" />
             <option value="$PROJECT_DIR$/jsweview" />
+            <option value="$PROJECT_DIR$/launcher" />
             <option value="$PROJECT_DIR$/launchericon" />
             <option value="$PROJECT_DIR$/nativelib" />
             <option value="$PROJECT_DIR$/nfc" />

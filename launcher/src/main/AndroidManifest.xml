@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.launcher3">
+
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher3.permission.WRITE_SETTINGS" />
+
+    <application
+        android:fullBackupOnly="true"
+        android:fullBackupContent="@xml/backupscheme"
+        android:hardwareAccelerated="true"
+        android:largeHeap="@bool/config_largeHeap"
+        android:restoreAnyVersion="true"
+        android:supportsRtl="true" >
+
+<!--        <activity-->
+<!--            android:name="com.android.launcher3.Launcher"-->
+<!--            android:launchMode="singleTask"-->
+<!--            android:clearTaskOnLaunch="true"-->
+<!--            android:stateNotNeeded="true"-->
+<!--            android:theme="@style/LauncherTheme"-->
+<!--            android:windowSoftInputMode="adjustPan"-->
+<!--            android:screenOrientation="nosensor"-->
+<!--            android:configChanges="keyboard|keyboardHidden|navigation"-->
+<!--            android:resumeWhilePausing="true"-->
+<!--            android:taskAffinity=""-->
+<!--            android:enabled="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--                <category android:name="android.intent.category.HOME" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.MONKEY"/>-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+<!--        &lt;!&ndash;-->
+<!--        The settings activity. When extending keep the intent filter present-->
+<!--        &ndash;&gt;-->
+<!--        <activity-->
+<!--            android:name="com.android.launcher3.SettingsActivity"-->
+<!--            android:label="@string/settings_button_text"-->
+<!--            android:autoRemoveFromRecents="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+<!--        &lt;!&ndash;-->
+<!--        The settings provider contains Home's data, like the workspace favorites. The permissions-->
+<!--        should be changed to what is defined above. The authorities should also be changed to-->
+<!--        represent the package name.-->
+<!--        &ndash;&gt;-->
+<!--        <provider-->
+<!--            android:name="com.android.launcher3.LauncherProvider"-->
+<!--            android:authorities="com.android.launcher3.settings"-->
+<!--            android:exported="true"-->
+<!--            android:writePermission="com.android.launcher3.permission.WRITE_SETTINGS"-->
+<!--            android:readPermission="com.android.launcher3.permission.READ_SETTINGS" />-->
+
+    </application>
+</manifest>

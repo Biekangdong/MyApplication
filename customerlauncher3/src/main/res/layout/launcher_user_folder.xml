@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+     Copyright (C) 2015 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<com.android.launcher3.folder.Folder xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_gray3e_bg_alpha_20"
+    android:elevation="5dp"
+    android:orientation="vertical">
+
+    <com.android.launcher3.ExtendedEditText
+        android:id="@+id/folder_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#00000000"
+        android:gravity="center"
+        android:hint="New Group"
+        android:imeOptions="flagNoExtractUi"
+        android:includeFontPadding="false"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"
+        android:singleLine="true"
+        android:textColor="#ffffff"
+        android:textColorHighlight="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="@dimen/folder_label_text_size" />
+
+    <com.android.launcher3.folder.FolderPagedView
+        android:id="@+id/folder_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        launcher:pageIndicator="@+id/folder_page_indicator" />
+
+    <LinearLayout
+        android:id="@+id/folder_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="6dp">
+
+
+        <com.android.launcher3.pageindicators.PageIndicatorDots
+            android:id="@+id/folder_page_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="1dp" />
+
+    </LinearLayout>
+
+</com.android.launcher3.folder.Folder>

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private PendingIntent mPendingIntent;
 
     private TextView tvContent;
-
 
 
     @Override
@@ -73,25 +73,49 @@ public class MainActivity extends AppCompatActivity {
             // NfcUtils中获取卡中数据的方法
             String result = readNFCFromTag(intent);
             Log.e(TAG, "processIntent--result: " + result);
-            Toast.makeText(this, "卡ID:"+id, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "卡ID:" + id, Toast.LENGTH_SHORT).show();
 
-            StringBuilder stringBuilder=new StringBuilder();
-            stringBuilder.append("卡ID:"+id).append("\r\n");
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("卡ID十六进制:" + id).append("\r\n");
+            stringBuilder.append("卡ID十进制:" + hexToDec(id)).append("\r\n");
             stringBuilder.append("信息:").append("\r\n");
             stringBuilder.append(result).append("\r\n");
+
+
             tvContent.setText(stringBuilder);
             // 往卡中写数据
 //            String data = "this.is.write";
 //            writeNFCToTag(data, intent);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public static int hexToDec(String s) {
+        String s1 = s.toUpperCase(); // 全转大写
+        char[] chars = s1.toCharArray(); // 转成 char 数组
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < chars.length; i++) {
+            stack.push(chars[i]); // 放入栈中，倒序遍历
+        }
+        int sum = 0;  // 定义总和
+        int size = stack.size(); // 要先赋值给 size ，不然 stack.pop() 之后 size 会变
+        for (int i = 0; i < size; i++) {
+            Character pop = stack.pop();
+            if (String.valueOf(pop).matches("[A-F]")) {  // 如果是 A-F
+                sum += (Math.pow(16, i) * ((pop - 55))); // A的ASCII码为 65，取偏移量
+            } else { // 如果是纯数字
+                sum += Math.pow(16, i) * Integer.parseInt(String.valueOf(pop));
+            }
+        }
+        return sum;
+    }
+
+
     /**
      * 将字节数组转换为字符串
      */
-    private  String ByteArrayToHexString(byte[] inarray) {
+    private String ByteArrayToHexString(byte[] inarray) {
         int i, j, in;
         String[] hex = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
         String out = "";
@@ -109,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 读取nfcID
      */
-    public  String readNFCId(Intent intent) throws UnsupportedEncodingException {
+    public String readNFCId(Intent intent) throws UnsupportedEncodingException {
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         String id = ByteArrayToHexString(tag.getId());
         return id;
@@ -119,15 +143,15 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 读取NFC的数据
      */
-    public  String readNFCFromTag(Intent intent) throws UnsupportedEncodingException {
+    public String readNFCFromTag(Intent intent) throws UnsupportedEncodingException {
         Parcelable[] rawArray = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
-        StringBuilder stringBuilder=new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         if (rawArray != null) {
-            for(int i=0;i<rawArray.length;i++){
+            for (int i = 0; i < rawArray.length; i++) {
                 NdefMessage mNdefMsg = (NdefMessage) rawArray[i];
 
-                for(int j=0;j<mNdefMsg.getRecords().length;i++){
-                NdefRecord mNdefRecord = mNdefMsg.getRecords()[j];
+                for (int j = 0; j < mNdefMsg.getRecords().length; i++) {
+                    NdefRecord mNdefRecord = mNdefMsg.getRecords()[j];
 
                     if (mNdefRecord != null) {
                         String readResult = new String(mNdefRecord.getPayload(), "UTF-8");

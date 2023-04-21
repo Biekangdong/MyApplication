@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_statues"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp">
+
+        <LinearLayout
+            android:id="@+id/ll_back2"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_back2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:paddingLeft="3dp"
+                android:src="@mipmap/back" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_title_layout2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_head_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:singleLine="true"
+                android:text="标题"
+                android:textColor="#0078A3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_title_right2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/ll_menu_new_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:singleLine="true"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:text="添加"
+                android:textColor="#0078A3" />
+            <TextView
+                android:id="@+id/tv_title_right2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:singleLine="true"
+                android:paddingRight="15dp"
+                android:paddingLeft="10dp"
+                android:text="编辑"
+                android:textColor="#0078A3" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_title_line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#262626" />
+    </RelativeLayout>
+</LinearLayout>
