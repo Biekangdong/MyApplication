@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3" xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\AndroidProject\MyApplication\launcher\src\main\res"/><source path="D:\AndroidProject\MyApplication\launcher\build\generated\res\rs\debug"/><source path="D:\AndroidProject\MyApplication\launcher\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\AndroidProject\MyApplication\launcher\src\main\res"><file name="no_anim" path="D:\AndroidProject\MyApplication\launcher\src\main\res\anim\no_anim.xml" qualifiers="" type="anim"/><file name="task_open_enter" path="D:\AndroidProject\MyApplication\launcher\src\main\res\anim\task_open_enter.xml" qualifiers="" type="anim"/><file name="overview_button_anim" path="D:\AndroidProject\MyApplication\launcher\src\main\res\animator-v21\overview_button_anim.xml" qualifiers="v21" type="animator"/><file name="text_statues_selector" path="D:\AndroidProject\MyApplication\launcher\src\main\res\color\text_statues_selector.xml" qualifiers="" type="color"/><file name="all_apps_button_icon" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\all_apps_button_icon.xml" qualifiers="" type="drawable"/><file name="all_apps_divider" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\all_apps_divider.xml" qualifiers="" type="drawable"/><file name="all_apps_search_divider" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\all_apps_search_divider.xml" qualifiers="" type="drawable"/><file name="all_apps_search_hint" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\all_apps_search_hint.xml" qualifiers="" type="drawable"/><file name="bg_celllayout" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\bg_celllayout.xml" qualifiers="" type="drawable"/><file name="bg_floder_alpha" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\bg_floder_alpha.xml" qualifiers="" type="drawable"/><file name="bg_pill_focused" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\bg_pill_focused.xml" qualifiers="" type="drawable"/><file name="bg_screenpanel" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\bg_screenpanel.xml" qualifiers="" type="drawable"/><file name="bg_white_pill" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\bg_white_pill.xml" qualifiers="" type="drawable"/><file name="container_fastscroll_popup_bg" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\container_fastscroll_popup_bg.xml" qualifiers="" type="drawable"/><file name="deep_shortcuts_drag_handle" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\deep_shortcuts_drag_handle.xml" qualifiers="" type="drawable"/><file name="ic_allapps_search" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\ic_allapps_search.xml" qualifiers="" type="drawable"/><file name="ic_all_apps_bg_icon_1" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\ic_all_apps_bg_icon_1.xml" qualifiers="" type="drawable"/><file name="ic_all_apps_bg_icon_2" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\ic_all_apps_bg_icon_2.xml" qualifiers="" type="drawable"/><file name="ic_all_apps_bg_icon_3" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\ic_all_apps_bg_icon_3.xml" qualifiers="" type="drawable"/><file name="ic_all_apps_bg_icon_4" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\ic_all_apps_bg_icon_4.xml" qualifiers="" type="drawable"/><file name="ic_setting" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\ic_setting.xml" qualifiers="" type="drawable"/><file name="ic_wallpaper" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\ic_wallpaper.xml" qualifiers="" type="drawable"/><file name="ic_widget" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\ic_widget.xml" qualifiers="" type="drawable"/><file name="quantum_panel" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\quantum_panel.xml" qualifiers="" type="drawable"/><file name="quantum_panel_dark" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\quantum_panel_dark.xml" qualifiers="" type="drawable"/><file name="quantum_panel_shape" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\quantum_panel_shape.xml" qualifiers="" type="drawable"/><file name="quantum_panel_shape_dark" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\quantum_panel_shape_dark.xml" qualifiers="" type="drawable"/><file name="widgets_row_divider" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\widgets_row_divider.xml" qualifiers="" type="drawable"/><file name="widget_internal_focus_bg" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable\widget_internal_focus_bg.xml" qualifiers="" type="drawable"/><file name="quantum_panel" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-v21\quantum_panel.xml" qualifiers="v21" type="drawable"/><file name="quantum_panel_dark" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-v21\quantum_panel_dark.xml" qualifiers="v21" type="drawable"/><file name="ic_allapps" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\ic_allapps.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_allapps_pressed" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\ic_allapps_pressed.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_all_apps_bg_hand" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\ic_all_apps_bg_hand.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_info_launcher" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\ic_info_launcher.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_launcher" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\ic_launcher.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_remove_launcher" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\ic_remove_launcher.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_uninstall_launcher" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\ic_uninstall_launcher.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_widget_resize_handle" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\ic_widget_resize_handle.png" qualifiers="xhdpi-v4" type="drawable"/><file name="page_hover_left" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\page_hover_left.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="page_hover_left_active" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\page_hover_left_active.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="page_hover_right" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\page_hover_right.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="page_hover_right_active" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\page_hover_right_active.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="quantum_panel_bitmap" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\quantum_panel_bitmap.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="quantum_panel_dark_bitmap" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\quantum_panel_dark_bitmap.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="screenpanel" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\screenpanel.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="screenpanel_hover" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\screenpanel_hover.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="virtual_preload" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\virtual_preload.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="virtual_preload_folder" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\virtual_preload_folder.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="widget_resize_frame" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\widget_resize_frame.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="widget_resize_shadow" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\widget_resize_shadow.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="widget_tile" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\widget_tile.png" qualifiers="xhdpi-v4" type="drawable"/><file name="workspace_bg" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xhdpi\workspace_bg.9.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_all_apps_bg_hand" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\ic_all_apps_bg_hand.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="ic_info_launcher" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\ic_info_launcher.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="ic_remove_launcher" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\ic_remove_launcher.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="ic_uninstall_launcher" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\ic_uninstall_launcher.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="ic_widget_resize_handle" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\ic_widget_resize_handle.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="quantum_panel_bitmap" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\quantum_panel_bitmap.9.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="quantum_panel_dark_bitmap" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\quantum_panel_dark_bitmap.9.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="widget_resize_frame" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\widget_resize_frame.9.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="widget_resize_shadow" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\widget_resize_shadow.9.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="workspace_bg" path="D:\AndroidProject\MyApplication\launcher\src\main\res\drawable-xxxhdpi\workspace_bg.9.png" qualifiers="xxxhdpi-v4" type="drawable"/><file name="decelerate_quart" path="D:\AndroidProject\MyApplication\launcher\src\main\res\interpolator\decelerate_quart.xml" qualifiers="" type="interpolator"/><file name="decelerate_quint" path="D:\AndroidProject\MyApplication\launcher\src\main\res\interpolator\decelerate_quint.xml" qualifiers="" type="interpolator"/><file name="disco_bounce_section1" path="D:\AndroidProject\MyApplication\launcher\src\main\res\interpolator\disco_bounce_section1.xml" qualifiers="" type="interpolator"/><file name="disco_bounce_section2" path="D:\AndroidProject\MyApplication\launcher\src\main\res\interpolator\disco_bounce_section2.xml" qualifiers="" type="interpolator"/><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values\attrs.xml" qualifiers=""><declare-styleable name="BubbleTextView">
+        <attr format="boolean" name="layoutHorizontal"/>
+        <attr format="dimension" name="iconSizeOverride"/>
+        <attr format="integer" name="iconDisplay">
+            <enum name="workspace" value="0"/>
+            <enum name="all_apps" value="1"/>
+            <enum name="folder" value="2"/>
+            <enum name="widget_section" value="3"/>
+        </attr>
+        <attr format="boolean" name="deferShadowGeneration"/>
+        <attr format="boolean" name="customShadows"/>
+        <attr format="boolean" name="centerVertically"/>
+    </declare-styleable><declare-styleable name="PagedView">
+        
+        <attr format="reference" name="pageIndicator"/>
+    </declare-styleable><declare-styleable name="BaseContainerView">
+        
+        <attr format="reference" name="revealBackground"/>
+    </declare-styleable><declare-styleable name="Favorite">
+        <attr format="string" name="className"/>
+        <attr format="string" name="packageName"/>
+        <attr format="string" name="container"/>
+        <attr format="string" name="screen"/>
+        <attr format="string" name="x"/>
+        <attr format="string" name="y"/>
+        <attr format="string" name="spanX"/>
+        <attr format="string" name="spanY"/>
+        <attr format="reference" name="icon"/>
+        <attr format="string" name="title"/>
+        <attr format="string" name="uri"/>
+    </declare-styleable><declare-styleable name="Extra">
+        <attr format="string" name="key"/>
+        <attr format="string" name="value"/>
+    </declare-styleable><declare-styleable name="Include">
+        <attr format="reference" name="workspace"/>
+        <attr format="reference" name="folderItems"/>
+    </declare-styleable><declare-styleable name="PreloadIconDrawable">
+        <attr format="reference" name="background"/>
+        <attr format="dimension" name="ringOutset"/>
+        <attr format="dimension" name="indicatorSize"/>
+    </declare-styleable><declare-styleable name="InsettableFrameLayout_Layout">
+        <attr format="boolean" name="layout_ignoreInsets"/>
+    </declare-styleable><declare-styleable name="ButtonDropTarget">
+        <attr format="boolean" name="hideParentOnDisable"/>
+    </declare-styleable><attr format="reference|color" name="colorSecondary"/><declare-styleable name="InvariantDeviceProfile">
+        <attr format="string" name="name"/>
+        <attr format="float" name="minWidthDps"/>
+        <attr format="float" name="minHeightDps"/>
+
+        <attr format="integer" name="numRows"/>
+        <attr format="integer" name="numColumns"/>
+        
+        <attr format="integer" name="numFolderRows"/>
+        <attr format="integer" name="numFolderColumns"/>
+        
+        <attr format="integer" name="minAllAppsPredictionColumns"/>
+        
+        <attr format="integer" name="numHotseatIcons"/>
+
+        <attr format="float" name="iconImageSize"/>
+        <attr format="float" name="iconTextSize"/>
+        
+        <attr format="float" name="hotseatIconSize"/>
+
+        <attr format="reference" name="defaultLayoutId"/>
+    </declare-styleable></file><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values\colors.xml" qualifiers=""><color name="delete_target_hover_tint">#FFC1C1C1</color><color name="uninstall_target_hover_tint">#FFF0592B</color><color name="focused_background">#80c6c5c5</color><color name="workspace_icon_text_color">#FFF</color><color name="workspace_edge_effect_color">#FFFFFFFF</color><color name="folder_edge_effect_color">#FF757575</color><color name="page_indicator_dot_color">#FFffffff</color><color name="page_indicator_dot_color2">#FF555555</color><color name="quantum_panel_text_color">#ffffff</color><color name="quantum_panel_bg_color">#FFF5F5F5</color><color name="outline_color">#FFFFFFFF</color><color name="all_apps_divider_color">#1E000000</color><color name="all_apps_caret_color">#FFFFFFFF</color><color name="all_apps_caret_shadow_color">#22000000</color><color name="all_apps_container_color">#FFF2F2F2</color><color name="all_apps_navbar_color">#28000000</color><color name="spring_loaded_panel_color">#40FFFFFF</color><color name="spring_loaded_highlighted_panel_border_color">#FFF</color><color name="widgets_view_section_text_color">#FFFFFF</color><color name="widgets_view_item_text_color">#C4C4C4</color><color name="fallback_secondary_color">#FF37474F</color></file><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values\config.xml" qualifiers=""><integer name="config_dynamic_grid_overview_icon_zone_percentage">20</integer><bool name="config_largeHeap">false</bool><bool name="is_tablet">false</bool><bool name="is_large_tablet">false</bool><bool name="allow_rotation">false</bool><integer name="config_maxNumberOfPageIndicatorsToShow">21</integer><string name="derived_app_name" translatable="false">@string/app_name</string><item name="drag_event_parity" type="id"/><integer name="config_workspaceScrimAlpha">30</integer><integer name="config_allAppsTransitionTime">100</integer><integer name="config_overviewTransitionTime">250</integer><integer name="config_workspaceSpringLoadShrinkPercentage">90</integer><integer name="config_workspaceOverviewShrinkPercentage">70</integer><integer name="config_overlayRevealTime">220</integer><integer name="config_overlaySlideRevealTime">320</integer><integer name="config_overlayTransitionTime">300</integer><integer name="config_overlayItemsAlphaStagger">60</integer><integer name="config_allAppsButtonPaddingPercent">17</integer><integer name="config_searchHintAnimationDuration">50</integer><integer name="config_dragOutlineFadeTime">900</integer><integer name="config_dragOutlineMaxAlpha">128</integer><integer name="config_dropAnimMinDuration">100</integer><integer name="config_dropAnimMaxDuration">500</integer><integer name="config_folderExpandDuration">120</integer><integer name="config_materialFolderExpandDuration">200</integer><integer name="config_materialFolderExpandStagger">60</integer><integer name="config_dropAnimMaxDist">800</integer><integer name="config_caretAnimationDuration">200</integer><bool name="hotseat_transpose_layout_with_orientation">true</bool><string name="app_filter_class" translatable="false"/><array name="launch_broadcast_targets" translatable="false"/><string name="icon_provider_class" translatable="false"/><string name="wallpaper_picker_package" translatable="false"/><bool name="center_crop">false</bool><item name="qsb_widget" type="id"/><item name="workspace_blocked_row" type="id"/><item name="cell_layout_jail_id" type="id"/><integer name="config_deepShortcutOpenDuration">220</integer><integer name="config_deepShortcutArrowOpenDuration">80</integer><integer name="config_deepShortcutOpenStagger">40</integer><integer name="config_deepShortcutCloseDuration">150</integer><integer name="config_deepShortcutCloseStagger">20</integer><item name="action_remove" type="id"/><item name="action_uninstall" type="id"/><item name="action_info" type="id"/><item name="action_add_to_workspace" type="id"/><item name="action_move" type="id"/><item name="action_move_to_workspace" type="id"/><item name="action_move_screen_backwards" type="id"/><item name="action_move_screen_forwards" type="id"/><item name="action_resize" type="id"/><item name="action_deep_shortcuts" type="id"/></file><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values\dimens.xml" qualifiers=""><dimen name="dynamic_grid_edge_margin">8dp</dimen><dimen name="dynamic_grid_page_indicator_height">100dp</dimen><dimen name="dynamic_grid_page_indicator_line_height">1dp</dimen><dimen name="dynamic_grid_page_indicator_gutter_width_left_nav_bar">38dp</dimen><dimen name="dynamic_grid_page_indicator_gutter_width_right_nav_bar">48dp</dimen><dimen name="dynamic_grid_icon_drawable_padding">4dp</dimen><dimen name="dynamic_grid_overview_min_icon_zone_height">80dp</dimen><dimen name="dynamic_grid_overview_max_icon_zone_height">120dp</dimen><dimen name="dynamic_grid_overview_bar_item_width">80dp</dimen><dimen name="dynamic_grid_overview_bar_spacer_width">25dp</dimen><dimen name="dynamic_grid_hotseat_height">0dp</dimen><dimen name="dynamic_grid_hotseat_top_padding">8dp</dimen><dimen name="dynamic_grid_hotseat_gutter_width">24dp</dimen><dimen name="dynamic_grid_workspace_top_padding">70dp</dimen><dimen name="dynamic_grid_workspace_page_spacing">8dp</dimen><dimen name="dynamic_grid_min_spring_loaded_space">8dp</dimen><dimen name="dynamic_grid_container_land_left_padding">118dp</dimen><dimen name="dynamic_grid_container_land_right_padding">66dp</dimen><dimen name="dynamic_grid_drop_target_size">48dp</dimen><dimen name="vert_drop_target_vertical_gap">20dp</dimen><dimen name="vert_drop_target_horizontal_gap">14dp</dimen><dimen name="default_widget_padding">8dp</dimen><dimen name="widget_handle_margin">13dp</dimen><dimen name="resize_frame_background_padding">24dp</dimen><dimen name="container_bounds_inset">8dp</dimen><dimen name="container_bounds_minus_quantum_panel_padding_inset">4dp</dimen><dimen name="container_fastscroll_thumb_min_width">5dp</dimen><dimen name="container_fastscroll_thumb_max_width">9dp</dimen><dimen name="container_fastscroll_thumb_height">72dp</dimen><dimen name="container_fastscroll_thumb_touch_inset">-24dp</dimen><dimen name="container_fastscroll_popup_size">72dp</dimen><dimen name="container_fastscroll_popup_text_size">48dp</dimen><dimen name="all_apps_button_scale_down">0dp</dimen><dimen name="all_apps_grid_view_start_margin">0dp</dimen><dimen name="all_apps_grid_section_y_offset">8dp</dimen><dimen name="all_apps_grid_section_text_size">24sp</dimen><dimen name="all_apps_search_bar_height">60dp</dimen><dimen name="all_apps_search_bar_margin_top">12dp</dimen><dimen name="all_apps_search_bar_icon_margin_right">4dp</dimen><dimen name="all_apps_search_bar_icon_margin_top">1dp</dimen><dimen name="all_apps_list_bottom_padding">8dp</dimen><dimen name="all_apps_empty_search_message_top_offset">40dp</dimen><dimen name="all_apps_empty_search_bg_top_offset">144dp</dimen><dimen name="all_apps_background_canvas_width">700dp</dimen><dimen name="all_apps_background_canvas_height">475dp</dimen><dimen name="all_apps_caret_stroke_width">2dp</dimen><dimen name="all_apps_caret_shadow_spread">1dp</dimen><dimen name="all_apps_caret_size">13dp</dimen><dimen name="all_apps_caret_workspace_offset">4dp</dimen><dimen name="all_apps_header_max_elevation">3dp</dimen><dimen name="all_apps_header_scroll_to_elevation">16dp</dimen><dimen name="all_apps_header_shadow_height">6dp</dimen><dimen name="all_apps_divider_margin_vertical">8dp</dimen><dimen name="all_apps_bezel_swipe_height">24dp</dimen><dimen name="widget_preview_label_vertical_padding">8dp</dimen><dimen name="widget_preview_label_horizontal_padding">8dp</dimen><dimen name="widget_section_height">56dp</dimen><dimen name="widget_section_icon_size">40dp</dimen><dimen name="widget_section_vertical_padding">8dp</dimen><dimen name="widget_section_horizontal_padding">16dp</dimen><dimen name="widget_section_indent">0dp</dimen><dimen name="widget_row_padding">8dp</dimen><dimen name="widget_row_divider">2dp</dimen><dimen name="shortcut_preview_padding_left">0dp</dimen><dimen name="shortcut_preview_padding_right">0dp</dimen><dimen name="shortcut_preview_padding_top">0dp</dimen><dimen name="drop_target_drag_padding">14dp</dimen><dimen name="drop_target_text_size">14sp</dimen><dimen name="drag_distanceThreshold">30dp</dimen><dimen name="scroll_zone">20dp</dimen><dimen name="dragViewScale">12dp</dimen><dimen name="drag_elevation">30dp</dimen><dimen name="drag_flingToDeleteMinVelocity">-1500dp</dimen><dimen name="spring_loaded_panel_border">1dp</dimen><dimen name="quantum_panel_outer_padding">4dp</dimen><dimen name="folder_preview_padding">8dp</dimen><dimen name="page_indicator_dot_size">8dp</dimen><dimen name="folder_cell_x_padding">9dp</dimen><dimen name="folder_cell_y_padding">6dp</dimen><dimen name="folder_child_text_size">13sp</dimen><dimen name="folder_label_padding_top">4dp</dimen><dimen name="folder_label_padding_bottom">12dp</dimen><dimen name="folder_label_text_size">16sp</dimen><dimen name="profile_badge_size">24dp</dimen><dimen name="profile_badge_margin">5dp</dimen><dimen name="profile_badge_minimum_top">2dp</dimen><dimen name="blur_size_thin_outline">1dp</dimen><dimen name="blur_size_medium_outline">2dp</dimen><dimen name="blur_size_click_shadow">4dp</dimen><dimen name="click_shadow_high_shift">2dp</dimen><dimen name="wallpaperThumbnailWidth">106.5dp</dimen><dimen name="wallpaperThumbnailHeight">94.5dp</dimen><dimen name="wallpaperItemIconSize">32dp</dimen><dimen name="pending_widget_min_padding">8dp</dimen><dimen name="pending_widget_elevation">2dp</dimen><dimen name="deep_shortcuts_elevation">9dp</dimen><dimen name="bg_pill_width">208dp</dimen><dimen name="bg_pill_height">48dp</dimen><dimen name="bg_pill_radius">24dp</dimen><dimen name="deep_shortcuts_spacing">4dp</dimen><dimen name="deferred_drag_view_scale">6dp</dimen><dimen name="deep_shortcuts_start_drag_threshold">16dp</dimen><dimen name="deep_shortcut_icon_size">36dp</dimen><dimen name="deep_shortcut_padding_start">6dp</dimen><dimen name="deep_shortcut_padding_end">16dp</dimen><dimen name="deep_shortcut_drawable_padding">8dp</dimen><dimen name="deep_shortcut_anim_translation_y">5dp</dimen><dimen name="deep_shortcut_drag_handle_size">16dp</dimen><dimen name="deep_shortcuts_arrow_width">10dp</dimen><dimen name="deep_shortcuts_arrow_height">8dp</dimen><dimen name="deep_shortcuts_arrow_vertical_offset">-2dp</dimen><dimen name="deep_shortcuts_arrow_horizontal_offset">19dp</dimen><dimen name="status_bar_height">24dp</dimen></file><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values\strings.xml" qualifiers=""><string name="folder_name"/><string name="work_folder_name">Work</string><string name="activity_not_found">App isn\'t installed.</string><string name="activity_not_available">App isn\'t available</string><string name="safemode_shortcut_error">Downloaded app disabled in Safe mode</string><string name="safemode_widget_error">Widgets disabled in Safe mode</string><string name="shortcut_not_available">Shortcut isn\'t available</string><string name="long_press_widget_to_add">Touch &amp; hold to pick up a widget.</string><string name="long_accessible_way_to_add">Double-tap &amp; hold to pick up a widget or use custom actions.</string><string name="widget_dims_format">%1$d \u00d7 %2$d</string><string name="widget_accessible_dims_format">%1$d wide by %2$d high</string><string name="all_apps_search_bar_hint">Search Apps</string><string name="all_apps_loading_message">Loading Apps…</string><string name="all_apps_no_search_results">No Apps found matching \"<ns1:g example="Android" id="query">%1$s</ns1:g>\"</string><string name="all_apps_search_market_message">Search for more apps</string><string name="out_of_space">No more room on this Home screen.</string><string name="hotseat_out_of_space">No more room in the Favorites tray</string><string name="all_apps_button_label">Apps list</string><string name="all_apps_home_button_label">Home</string><string name="remove_drop_target_label">Remove</string><string name="uninstall_drop_target_label">Uninstall</string><string name="app_info_drop_target_label">App info</string><string name="permlab_install_shortcut">install shortcuts</string><string name="permdesc_install_shortcut">Allows an app to add
+        shortcuts without user intervention.</string><string name="permlab_read_settings">read Home settings and shortcuts</string><string name="permdesc_read_settings">Allows the app to read the settings and
+        shortcuts in Home.</string><string name="permlab_write_settings">write Home settings and shortcuts</string><string name="permdesc_write_settings">Allows the app to change the settings and
+        shortcuts in Home.</string><string name="msg_no_phone_permission"><ns1:g example="Launcher3" id="app_name">%1$s</ns1:g> is not allowed to make phone calls</string><string name="gadget_error_text">Problem loading widget</string><string name="gadget_setup_text">Setup</string><string name="uninstall_system_app_text">This is a system app and can\'t be uninstalled.</string><string name="folder_hint_text">Unnamed Folder</string><string name="disabled_app_label">Disabled <ns1:g example="Messenger" id="app_name">%1$s</ns1:g></string><string name="default_scroll_format">Page %1$d of %2$d</string><string name="workspace_scroll_format">Home screen %1$d of %2$d</string><string name="workspace_new_page">New home screen page</string><string name="folder_opened">Folder opened, <ns1:g example="5" id="width">%1$d</ns1:g> by <ns1:g example="3" id="height">%2$d</ns1:g></string><string name="folder_tap_to_close">Tap to close folder</string><string name="folder_tap_to_rename">Tap to save rename</string><string name="folder_closed">Folder closed</string><string name="folder_renamed">Folder renamed to <ns1:g example="Games" id="name">%1$s</ns1:g></string><string name="folder_name_format">Folder: <ns1:g example="Games" id="name">%1$s</ns1:g></string><string name="widget_button_text">Widgets</string><string name="wallpaper_button_text">Wallpapers</string><string name="settings_button_text">Settings</string><string name="msg_disabled_by_admin">Disabled by your admin</string><string name="accessibility_action_overview">Overview</string><string name="allow_rotation_title">Allow Home screen rotation</string><string name="allow_rotation_desc">When phone is rotated</string><string name="allow_rotation_blocked_desc">Current Display setting doesn\'t permit rotation</string><string name="package_state_unknown">Unknown</string><string name="abandoned_clean_this">Remove</string><string name="abandoned_search">Search</string><string name="abandoned_promises_title">This app is not installed</string><string name="abandoned_promise_explanation">The app for this icon isn\'t installed.
+        You can remove it, or search for the app and install it manually.
+    </string><string name="app_downloading_title"><ns1:g example="Messenger" id="name">%1$s</ns1:g> downloading, <ns1:g example="30%" id="progress">%2$s</ns1:g> complete</string><string name="app_waiting_download_title"><ns1:g example="Messenger" id="name">%1$s</ns1:g> waiting to install</string><string name="action_add_to_workspace">Add to Home screen</string><string name="action_move_here">Move item here</string><string name="item_added_to_workspace">Item added to home screen</string><string name="item_removed">Item removed</string><string name="action_move">Move item</string><string name="move_to_empty_cell">Move to row <ns1:g example="1" id="number">%1$s</ns1:g> column <ns1:g example="1" id="number">%2$s</ns1:g></string><string name="move_to_position">Move to position <ns1:g example="1" id="number">%1$s</ns1:g></string><string name="move_to_hotseat_position">Move to favorites position <ns1:g example="1" id="number">%1$s</ns1:g></string><string name="item_moved">Item moved</string><string name="add_to_folder">Add to folder: <ns1:g example="Games" id="name">%1$s</ns1:g></string><string name="add_to_folder_with_app">Add to folder with <ns1:g example="Messenger" id="name">%1$s</ns1:g></string><string name="added_to_folder">Item added to folder</string><string name="create_folder_with">Create folder with: <ns1:g example="Game" id="name">%1$s</ns1:g></string><string name="folder_created">Folder created</string><string name="action_move_to_workspace">Move to Home screen</string><string name="action_move_screen_left">Move screen to left</string><string name="action_move_screen_right">Move screen to right</string><string name="screen_moved">Screen moved</string><string name="action_resize">Resize</string><string name="action_increase_width">Increase width</string><string name="action_increase_height">Increase height</string><string name="action_decrease_width">Decrease width</string><string name="action_decrease_height">Decrease height</string><string name="widget_resized">Widget resized to width <ns1:g example="2" id="number">%1$s</ns1:g> height <ns1:g example="1" id="number">%2$s</ns1:g></string><string name="action_deep_shortcut">Shortcuts</string><string name="shortcuts_menu_description"><ns1:g example="3" id="number_of_shortcuts">%1$d</ns1:g> shortcuts for <ns1:g example="Messenger" id="app_name">%2$s</ns1:g></string></file><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values\styles.xml" qualifiers=""><style name="BaseLauncherTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style><style name="LauncherTheme" parent="@style/BaseLauncherTheme"/><style name="Theme" parent="@style/LauncherTheme"/><style name="WidgetContainerTheme" parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="colorSecondary">@color/fallback_secondary_color</item>
+    </style><style name="CustomOverscroll"/><style name="CustomOverscroll.Light" parent="@android:style/Theme.DeviceDefault.Light">
+        <item name="android:colorEdgeEffect">@color/folder_edge_effect_color</item>
+    </style><style name="CustomOverscroll.Dark">
+        <item name="android:colorEdgeEffect">@color/workspace_edge_effect_color</item>
+    </style><style name="Icon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:textColor">@color/workspace_icon_text_color</item>
+        <item name="android:shadowRadius">2.0</item>
+        <item name="android:shadowColor">#B0000000</item>
+        
+    </style><style name="Icon.AllApps">
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/quantum_panel_text_color</item>
+        <item name="android:drawablePadding">@dimen/dynamic_grid_icon_drawable_padding</item>
+        <item name="android:shadowRadius">0</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="customShadows">false</item>
+    </style><style name="Icon.Folder">
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/quantum_panel_text_color</item>
+        <item name="android:shadowRadius">0</item>
+        <item name="android:textSize">@dimen/folder_child_text_size</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="customShadows">false</item>
+        <item name="iconDisplay">folder</item>
+    </style><style name="Icon.DeepShortcut">
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:elevation">@dimen/deep_shortcuts_elevation</item>
+        <item name="android:paddingStart">@dimen/bg_pill_height</item>
+        <item name="android:paddingEnd">@dimen/deep_shortcut_padding_end</item>
+        <item name="android:drawableEnd">@drawable/deep_shortcuts_drag_handle</item>
+        <item name="android:drawablePadding">@dimen/deep_shortcut_drawable_padding</item>
+        <item name="android:textColor">#FF212121</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:shadowRadius">0</item>
+        <item name="customShadows">false</item>
+        <item name="layoutHorizontal">true</item>
+        <item name="iconSizeOverride">@dimen/deep_shortcut_icon_size</item>
+    </style><style name="DropTargetButtonBase">
+        <item name="android:drawablePadding">7.5dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">@dimen/drop_target_text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">4.0</item>
+    </style><style name="DropTargetButton" parent="DropTargetButtonBase"/><style name="PreloadIcon">
+        <item name="background">@drawable/widget_tile</item>
+        <item name="indicatorSize">4dp</item>
+        <item name="ringOutset">4dp</item>
+    </style><style name="PreloadIcon.Folder">
+        <item name="background">@drawable/widget_tile</item>
+        <item name="indicatorSize">4dp</item>
+        <item name="ringOutset">4dp</item>
+    </style></file><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values-v19\styles.xml" qualifiers="v19"><style name="LauncherTheme" parent="@style/BaseLauncherTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style></file><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values-v21\styles.xml" qualifiers="v21"><style name="LauncherTheme" parent="@style/BaseLauncherTheme">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+    </style></file><file path="D:\AndroidProject\MyApplication\launcher\src\main\res\values-v25\styles.xml" qualifiers="v25"><style name="WidgetContainerTheme" parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="colorSecondary">?android:attr/colorSecondary</item>
+    </style></file><file name="app_target_browser" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\app_target_browser.xml" qualifiers="" type="xml"/><file name="app_target_camera" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\app_target_camera.xml" qualifiers="" type="xml"/><file name="app_target_email" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\app_target_email.xml" qualifiers="" type="xml"/><file name="app_target_gallery" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\app_target_gallery.xml" qualifiers="" type="xml"/><file name="app_target_messenger" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\app_target_messenger.xml" qualifiers="" type="xml"/><file name="app_target_phone" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\app_target_phone.xml" qualifiers="" type="xml"/><file name="backupscheme" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\backupscheme.xml" qualifiers="" type="xml"/><file name="device_profiles" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\device_profiles.xml" qualifiers="" type="xml"/><file name="dw_phone_hotseat" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\dw_phone_hotseat.xml" qualifiers="" type="xml"/><file name="dw_tablet_hotseat" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\dw_tablet_hotseat.xml" qualifiers="" type="xml"/><file name="launcher_preferences" path="D:\AndroidProject\MyApplication\launcher\src\main\res\xml\launcher_preferences.xml" qualifiers="" type="xml"/></source><source path="D:\AndroidProject\MyApplication\launcher\build\generated\res\rs\debug"/><source path="D:\AndroidProject\MyApplication\launcher\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\AndroidProject\MyApplication\launcher\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\AndroidProject\MyApplication\launcher\src\debug\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="Favorite">
+        <attr format="string" name="className"/>
+        <attr format="string" name="packageName"/>
+        <attr format="string" name="container"/>
+        <attr format="string" name="screen"/>
+        <attr format="string" name="x"/>
+        <attr format="string" name="y"/>
+        <attr format="string" name="spanX"/>
+        <attr format="string" name="spanY"/>
+        <attr format="reference" name="icon"/>
+        <attr format="string" name="title"/>
+        <attr format="string" name="uri"/>
+    </declare-styleable><declare-styleable name="PagedView">
+        
+        <attr format="reference" name="pageIndicator"/>
+    </declare-styleable><declare-styleable name="Extra">
+        <attr format="string" name="key"/>
+        <attr format="string" name="value"/>
+    </declare-styleable><declare-styleable name="ButtonDropTarget">
+        <attr format="boolean" name="hideParentOnDisable"/>
+    </declare-styleable><declare-styleable name="InsettableFrameLayout_Layout">
+        <attr format="boolean" name="layout_ignoreInsets"/>
+    </declare-styleable><declare-styleable name="InvariantDeviceProfile">
+        <attr format="string" name="name"/>
+        <attr format="float" name="minWidthDps"/>
+        <attr format="float" name="minHeightDps"/>
+
+        <attr format="integer" name="numRows"/>
+        <attr format="integer" name="numColumns"/>
+        
+        <attr format="integer" name="numFolderRows"/>
+        <attr format="integer" name="numFolderColumns"/>
+        
+        <attr format="integer" name="minAllAppsPredictionColumns"/>
+        
+        <attr format="integer" name="numHotseatIcons"/>
+
+        <attr format="float" name="iconImageSize"/>
+        <attr format="float" name="iconTextSize"/>
+        
+        <attr format="float" name="hotseatIconSize"/>
+
+        <attr format="reference" name="defaultLayoutId"/>
+    </declare-styleable><declare-styleable name="Include">
+        <attr format="reference" name="workspace"/>
+        <attr format="reference" name="folderItems"/>
+    </declare-styleable><declare-styleable name="BaseContainerView">
+        
+        <attr format="reference" name="revealBackground"/>
+    </declare-styleable><declare-styleable name="BubbleTextView">
+        <attr format="boolean" name="layoutHorizontal"/>
+        <attr format="dimension" name="iconSizeOverride"/>
+        <attr format="integer" name="iconDisplay">
+            <enum name="workspace" value="0"/>
+            <enum name="all_apps" value="1"/>
+            <enum name="folder" value="2"/>
+            <enum name="widget_section" value="3"/>
+        </attr>
+        <attr format="boolean" name="deferShadowGeneration"/>
+        <attr format="boolean" name="customShadows"/>
+        <attr format="boolean" name="centerVertically"/>
+    </declare-styleable><declare-styleable name="PreloadIconDrawable">
+        <attr format="reference" name="background"/>
+        <attr format="dimension" name="ringOutset"/>
+        <attr format="dimension" name="indicatorSize"/>
+    </declare-styleable></configuration></mergedItems></merger>

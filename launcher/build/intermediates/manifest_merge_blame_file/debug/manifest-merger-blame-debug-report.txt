@@ -1,0 +1,89 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.android.launcher3" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="29" />
+7-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+9-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:6:5-85
+9-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:6:22-82
+10    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+10-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:7:5-86
+10-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:7:22-83
+11    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
+11-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:8:5-86
+11-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:8:22-83
+12    <uses-permission android:name="com.android.launcher3.permission.WRITE_SETTINGS" />
+12-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:9:5-87
+12-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:9:22-84
+13
+14    <application
+14-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:11:5-65:19
+15        android:fullBackupContent="@xml/backupscheme"
+15-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:13:9-54
+16        android:fullBackupOnly="true"
+16-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:12:9-38
+17        android:hardwareAccelerated="true"
+17-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:14:9-43
+18        android:largeHeap="@bool/config_largeHeap"
+18-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:15:9-51
+19        android:restoreAnyVersion="true"
+19-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:16:9-41
+20        android:supportsRtl="true" >
+20-->D:\AndroidProject\MyApplication\launcher\src\main\AndroidManifest.xml:17:9-35
+21
+22        <!-- <activity -->
+23        <!-- android:name="com.android.launcher3.Launcher" -->
+24        <!-- android:launchMode="singleTask" -->
+25        <!-- android:clearTaskOnLaunch="true" -->
+26        <!-- android:stateNotNeeded="true" -->
+27        <!-- android:theme="@style/LauncherTheme" -->
+28        <!-- android:windowSoftInputMode="adjustPan" -->
+29        <!-- android:screenOrientation="nosensor" -->
+30        <!-- android:configChanges="keyboard|keyboardHidden|navigation" -->
+31        <!-- android:resumeWhilePausing="true" -->
+32        <!-- android:taskAffinity="" -->
+33        <!-- android:enabled="true"> -->
+34        <!-- <intent-filter> -->
+35        <!-- <action android:name="android.intent.action.MAIN" /> -->
+36        <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+37        <!-- <category android:name="android.intent.category.HOME" /> -->
+38        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+39        <!-- <category android:name="android.intent.category.MONKEY"/> -->
+40        <!-- </intent-filter> -->
+41        <!-- </activity> -->
+42
+43
+44        <!-- &lt;!&ndash; -->
+45        <!-- The settings activity. When extending keep the intent filter present -->
+46        <!-- &ndash;&gt; -->
+47        <!-- <activity -->
+48        <!-- android:name="com.android.launcher3.SettingsActivity" -->
+49        <!-- android:label="@string/settings_button_text" -->
+50        <!-- android:autoRemoveFromRecents="true"> -->
+51        <!-- <intent-filter> -->
+52        <!-- <action android:name="android.intent.action.APPLICATION_PREFERENCES" /> -->
+53        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+54        <!-- </intent-filter> -->
+55        <!-- </activity> -->
+56
+57
+58        <!-- &lt;!&ndash; -->
+59        <!-- The settings provider contains Home's data, like the workspace favorites. The permissions -->
+60        <!-- should be changed to what is defined above. The authorities should also be changed to -->
+61        <!-- represent the package name. -->
+62        <!-- &ndash;&gt; -->
+63        <!-- <provider -->
+64        <!-- android:name="com.android.launcher3.LauncherProvider" -->
+65        <!-- android:authorities="com.android.launcher3.settings" -->
+66        <!-- android:exported="true" -->
+67        <!-- android:writePermission="com.android.launcher3.permission.WRITE_SETTINGS" -->
+68        <!-- android:readPermission="com.android.launcher3.permission.READ_SETTINGS" /> -->
+69
+70    </application>
+71
+72</manifest>
