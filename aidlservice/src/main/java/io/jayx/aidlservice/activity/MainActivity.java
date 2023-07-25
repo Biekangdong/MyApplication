@@ -18,30 +18,42 @@ import io.jayx.aidlservice.service.MyService;
 public class MainActivity extends AppCompatActivity {
     private TextView tvName;
 
+    private MyServiceConnection myServiceConnection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvName = (TextView) findViewById(R.id.tv_name);
-        //启动服务
-        Intent intent = new Intent();
-        intent.setPackage("io.jayx.aidlservice");
-        intent.setAction("io.jayx.aidlservice.service.MyService");
-        bindService(intent, new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                IMyAidlInterface iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service);
-                try {
-                    tvName.setText(iMyAidlInterface.getName());
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-            }
+        //绑定服务
+        myServiceConnection = new MyServiceConnection();
+        Intent intent = new Intent(this,MyService.class);
+        bindService(intent, myServiceConnection , Context.BIND_AUTO_CREATE);
+    }
 
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-
+     class  MyServiceConnection implements ServiceConnection {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            IMyAidlInterface iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service);
+            try {
+                tvName.setText(iMyAidlInterface.getName());
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
-        }, Context.BIND_AUTO_CREATE);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(myServiceConnection!=null){
+            unbindService(myServiceConnection);
+        }
     }
 }

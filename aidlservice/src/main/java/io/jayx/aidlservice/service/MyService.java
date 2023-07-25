@@ -14,15 +14,11 @@ public class MyService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
-        return new Like();
+        return new MyAidlInterface();
     }
 
-    class Like extends IMyAidlInterface.Stub{
+    class MyAidlInterface extends IMyAidlInterface.Stub{
 
-        @Override
-        public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString) throws RemoteException {
-
-        }
 
         @Override
         public String getName() throws RemoteException {

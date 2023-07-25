@@ -1,11 +1,17 @@
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
-    }
-}
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        mavenCentral()
+//        jcenter() // Warning: this repository is going to shut down soon
+//        maven { url 'https://jitpack.io' }
+//
+//        flatDir{
+//            //添加的
+//            dirs('../aar/')
+//        }
+//    }
+//}
 rootProject.name = "MyApplication"
 include ':app'
 include ':algorithm'
@@ -29,3 +35,12 @@ include ':nfc'
 include ':bitmaptest'
 include ':customerlauncher3'
 include ':launcher'
+include ':camera'
+include ':schemetest'
+include ':schemetestmain'
+include ':servicetest'
+include ':calcautor'
+include ':chart'
+include ':calentar'
+include ':dialogapplication'
+include ':websocket'

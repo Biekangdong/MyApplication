@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".service.TestJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            />
+
+        <receiver android:name=".receiver.MyReceiver"
+            android:exported="true"/>
+
+        <receiver
+            android:name=".receiver.MyOrderBroadcastReceiver"
+            android:exported="true">
+
+            <!-- priority优先级：数字越高优先级越高 -->
+            <intent-filter android:priority="2">
+                <action android:name="BROADCAST_ACTION2" />
+            </intent-filter>
+
+            <intent-filter android:priority="1">
+                <action android:name="BROADCAST_ACTION1" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

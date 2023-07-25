@@ -15,9 +15,14 @@
             <option value="$PROJECT_DIR$/algorithm" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bitmaptest" />
+            <option value="$PROJECT_DIR$/calcautor" />
+            <option value="$PROJECT_DIR$/calentar" />
+            <option value="$PROJECT_DIR$/camera" />
             <option value="$PROJECT_DIR$/cardviewswitch" />
+            <option value="$PROJECT_DIR$/chart" />
             <option value="$PROJECT_DIR$/coordinatorlayout" />
             <option value="$PROJECT_DIR$/customerlauncher3" />
+            <option value="$PROJECT_DIR$/dialogapplication" />
             <option value="$PROJECT_DIR$/googleapplication" />
             <option value="$PROJECT_DIR$/googlemap" />
             <option value="$PROJECT_DIR$/ipscan" />
@@ -29,10 +34,14 @@
             <option value="$PROJECT_DIR$/nfc" />
             <option value="$PROJECT_DIR$/reflect" />
             <option value="$PROJECT_DIR$/rxjava" />
+            <option value="$PROJECT_DIR$/schemetest" />
+            <option value="$PROJECT_DIR$/schemetestmain" />
+            <option value="$PROJECT_DIR$/servicetest" />
             <option value="$PROJECT_DIR$/signalr" />
             <option value="$PROJECT_DIR$/svgtest" />
             <option value="$PROJECT_DIR$/utils" />
             <option value="$PROJECT_DIR$/voicechanger" />
+            <option value="$PROJECT_DIR$/websocket" />
           </set>
         </option>
       </GradleProjectSettings>

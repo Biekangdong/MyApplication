@@ -9,6 +9,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.nfc.tech.Ndef;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -59,22 +60,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.e(TAG, "--------------NFC-------------");
         processIntent(intent);
     }
 
-    //  这块的processIntent() 就是处理卡中数据的方法
+    //这块的processIntent() 就是处理卡中数据的方法
     public void processIntent(Intent intent) {
         try {
             tvContent.setText("");
             // 检测卡的id
             String id = readNFCId(intent);
-            Log.e(TAG, "processIntent--id: " + id);
             // NfcUtils中获取卡中数据的方法
             String result = readNFCFromTag(intent);
-            Log.e(TAG, "processIntent--result: " + result);
-            Toast.makeText(this, "卡ID:" + id, Toast.LENGTH_SHORT).show();
-
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("卡ID十六进制:" + id).append("\r\n");
             stringBuilder.append("卡ID十进制:" + hexToDec(id)).append("\r\n");
@@ -84,13 +80,52 @@ public class MainActivity extends AppCompatActivity {
 
             tvContent.setText(stringBuilder);
             // 往卡中写数据
-//            String data = "this.is.write";
-//            writeNFCToTag(data, intent);
+            //String data = "this.is.write";
+            //writeNFCToTag(data, intent);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * 读取nfcID
+     */
+    public String readNFCId(Intent intent) throws UnsupportedEncodingException {
+        Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+        String id = ByteArrayToHexString(tag.getId());
+        return id;
+    }
+
+
+    /**
+     * 读取NFC的数据
+     */
+    public String readNFCFromTag(Intent intent) throws UnsupportedEncodingException {
+        Parcelable[] rawArray = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+        StringBuilder stringBuilder = new StringBuilder();
+        if (rawArray != null) {
+            for (int i = 0; i < rawArray.length; i++) {
+                NdefMessage mNdefMsg = (NdefMessage) rawArray[i];
+
+                for (int j = 0; j < mNdefMsg.getRecords().length; i++) {
+                    NdefRecord mNdefRecord = mNdefMsg.getRecords()[j];
+
+                    if (mNdefRecord != null) {
+                        String readResult = new String(mNdefRecord.getPayload(), "UTF-8");
+                        stringBuilder.append(readResult).append("\r\n");
+                    }
+                }
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+
+    /**
+     * 十六进制转10进制
+     * @param s
+     * @return
+     */
     public static int hexToDec(String s) {
         String s1 = s.toUpperCase(); // 全转大写
         char[] chars = s1.toCharArray(); // 转成 char 数组
@@ -130,46 +165,27 @@ public class MainActivity extends AppCompatActivity {
         return out;
     }
 
-    /**
-     * 读取nfcID
-     */
-    public String readNFCId(Intent intent) throws UnsupportedEncodingException {
-        Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-        String id = ByteArrayToHexString(tag.getId());
-        return id;
-    }
-
 
     /**
-     * 读取NFC的数据
+     * 往nfc写入数据
      */
-    public String readNFCFromTag(Intent intent) throws UnsupportedEncodingException {
-        Parcelable[] rawArray = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
-        StringBuilder stringBuilder = new StringBuilder();
-        if (rawArray != null) {
-            for (int i = 0; i < rawArray.length; i++) {
-                NdefMessage mNdefMsg = (NdefMessage) rawArray[i];
-
-                for (int j = 0; j < mNdefMsg.getRecords().length; i++) {
-                    NdefRecord mNdefRecord = mNdefMsg.getRecords()[j];
-
-                    if (mNdefRecord != null) {
-                        String readResult = new String(mNdefRecord.getPayload(), "UTF-8");
-                        stringBuilder.append(readResult).append("\r\n");
-                    }
-                }
+    public static void writeNFCToTag(String data, Intent intent){
+        try {
+            Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+            Ndef ndef = Ndef.get(tag);
+            ndef.connect();
+            NdefRecord ndefRecord = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                ndefRecord = NdefRecord.createTextRecord(null, data);
             }
-//            NdefMessage mNdefMsg = (NdefMessage) rawArray[0];
-//            NdefRecord mNdefRecord = mNdefMsg.getRecords()[0];
-//            if (mNdefRecord != null) {
-//                String readResult = new String(mNdefRecord.getPayload(), "UTF-8");
-//                return readResult;
-//            }
+            NdefRecord[] records = {ndefRecord};
+            NdefMessage ndefMessage = new NdefMessage(records);
+            ndef.writeNdefMessage(ndefMessage);
+        }catch (Exception e){
+
         }
-        return stringBuilder.toString();
+
     }
-
-
     @Override
     protected void onPause() {
         super.onPause();

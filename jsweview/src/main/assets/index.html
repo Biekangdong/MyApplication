@@ -2,25 +2,19 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport"
-			content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 	</head>
 	<body>
-	  <button style="margin-top: 200px;margin-left: 100px;" onclick="say('aaaa')">点击</button>
-	
-	 <div>
-		 <span id="text" style="margin-left: 100px;"></span>
-	 </div>
+		 <div>
+			 function say(value){</br>
+			 &nbsp;&nbsp;callJS(value);</br>
+			 }
+		 </div>
 	</body>
 	
 	<script>
-		function say(){
-			alert("aa");
-		}
-		
-		function say(value){
-			// alert(value);
-			document.getElementById("text").innerHTML = value;
+		function callJS(value){
+			alert(value);
+			return value;
 		}
 	</script>
 </html>

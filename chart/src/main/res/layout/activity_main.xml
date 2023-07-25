@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/chart1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="chart1"
+        android:text="柱状图"/>
+    <Button
+        android:id="@+id/chart2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="chart2"
+        android:text="饼状图"/>
+
+    <Button
+        android:id="@+id/chart3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="chart3"
+        android:text="折线图"/>
+</LinearLayout>
