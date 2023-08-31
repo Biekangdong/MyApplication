@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/aidlservice" />
+            <option value="$PROJECT_DIR$/aiimageupload" />
             <option value="$PROJECT_DIR$/algorithm" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bitmaptest" />
@@ -39,6 +40,7 @@
             <option value="$PROJECT_DIR$/servicetest" />
             <option value="$PROJECT_DIR$/signalr" />
             <option value="$PROJECT_DIR$/svgtest" />
+            <option value="$PROJECT_DIR$/usbmanager" />
             <option value="$PROJECT_DIR$/utils" />
             <option value="$PROJECT_DIR$/voicechanger" />
             <option value="$PROJECT_DIR$/websocket" />

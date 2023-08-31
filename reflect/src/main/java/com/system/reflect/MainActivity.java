@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
         //getField();
-        getMethod();
+        //getMethod();
     }
 
 
@@ -94,34 +94,34 @@ public class MainActivity extends AppCompatActivity {
      *
      *  （3）获取指定的成员方法
      */
-    public void getMethod() {
-        try {
-            // 获取字节码文件对象
-            Class c = Class.forName("com.system.reflect.User");
-
-            // 创建对象
-            Constructor con = c.getConstructor();
-            Object obj = con.newInstance();
-
-            //第一种：无参数无返回值
-            Method m1 = c.getMethod("show", null);  //show是方法名称，后边是方法参数，null表示无参方法
-            m1.invoke(obj, null);//nvoke 主要是用来调用某个类中的方法的，但是他不是通过当前类直接去调用而是通过反射的机制去调用
-
-            //第二种：带string类型参数无返回值
-            Method m2 = c.getMethod("function", String.class);
-            m2.invoke(obj, "岳飞"); //invoke表示对方法进行调用
-
-            //第三种：带多个参数有返回值
-            Method m3 = c.getMethod("reutrnValue", String.class, int.class);
-             m3.invoke(obj, "张飞", 26);
-
-
-            //第四种：私有方法的调用
-            Method m4 = c.getDeclaredMethod("hello", null);
-            m4.setAccessible(true); //设置访问权限，这一点很重要
-            m4.invoke(obj, null);
-        }catch (Exception exception) {
-            Log.e(TAG, "exception: "+exception.getMessage() );
-        }
-    }
+//    public void getMethod() {
+//        try {
+//            // 获取字节码文件对象
+//            Class c = Class.forName("com.system.reflect.User");
+//
+//            // 创建对象
+//            Constructor con = c.getConstructor();
+//            Object obj = con.newInstance();
+//
+//            //第一种：无参数无返回值
+//            Method m1 = c.getMethod("show", null);  //show是方法名称，后边是方法参数，null表示无参方法
+//            m1.invoke(obj, null);//nvoke 主要是用来调用某个类中的方法的，但是他不是通过当前类直接去调用而是通过反射的机制去调用
+//
+//            //第二种：带string类型参数无返回值
+//            Method m2 = c.getMethod("function", String.class);
+//            m2.invoke(obj, "岳飞"); //invoke表示对方法进行调用
+//
+//            //第三种：带多个参数有返回值
+//            Method m3 = c.getMethod("reutrnValue", String.class, int.class);
+//             m3.invoke(obj, "张飞", 26);
+//
+//
+//            //第四种：私有方法的调用
+//            Method m4 = c.getDeclaredMethod("hello", null);
+//            m4.setAccessible(true); //设置访问权限，这一点很重要
+//            m4.invoke(obj, null);
+//        }catch (Exception exception) {
+//            Log.e(TAG, "exception: "+exception.getMessage() );
+//        }
+//    }
 }
