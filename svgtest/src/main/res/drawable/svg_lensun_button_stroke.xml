@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="60dp"
+    android:viewportWidth="160"
+    android:viewportHeight="60">
+    <path
+        android:pathData="M0,30
+        L20,0
+        L140,0
+        L160,30
+        L140,60
+        L20,60
+        L0,30Z"
+        android:strokeWidth="2"
+        android:strokeColor="#8fafdb" />
+</vector>
+
+    <!--
+    M0,30     移到(0,30)点开始绘制 左上角
+    L20,0     画线(0,30)坐标到(20,0)坐标 右上角
+    L140,0    画线(20,0)坐标到(140,0)坐标 右中间
+    L160,30   画线(140,0)坐标到(160,30)坐标 右下角
+    L140,60   画线(60,30)坐标到(L140,60)坐标 左下角
+    L20,60     画线(140,60)坐标到(20,60)坐标 左中间
+    L0,30Z     画线(0,60)坐标到(0,30)坐标 右上角闭合
+    -->

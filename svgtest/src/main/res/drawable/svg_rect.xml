@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="60dp"
+    android:viewportWidth="160"
+    android:viewportHeight="60">
+    <path
+        android:pathData="M0,0
+        L160,0
+        L160,60
+        L0,60
+        L0,0Z"
+        android:fillColor="#8fafdb"/>
+</vector>
+
+<!--
+M0,0      移到(0，0)点开始绘制 左上角
+L160,0    画线(0，0)坐标到(160，0)坐标 右上角
+L160,60   画线(160,0)坐标到160,60)坐标 右下角
+L0,60     画线(160,60)坐标到(0,60)坐标 右下角
+L0,0Z      画线(0,60)坐标到(00)坐标 左上角闭合
+-->

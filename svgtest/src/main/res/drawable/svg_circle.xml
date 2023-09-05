@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="160dp"
+    android:viewportWidth="160"
+    android:viewportHeight="160">
+    <path
+        android:pathData="M0,80
+        A80,80
+        0
+        1
+        1
+        0,80.00001Z"
+        android:fillColor="#8fafdb"/>
+</vector>
+<!--
+pathData="
+M x y
+A rx ry
+x-axis-rotation
+large-arc-flag
+sweep-flag
+x y"
+
+M0,80                移到(0,80)点开始绘制,顶部中间位置,rx ry 分别是是椭圆的x轴半径和y轴半径
+A80,80               画弧度(80,80) X方向半径，和Y方向半径
+0                    x-axis-rotation 是椭圆相对于坐标系的旋转角度
+1                    large-arc-flag 是标记绘制大弧(1)还是小弧(0)部分。
+1                    sweep-flag 是标记向顺时针(1)还是逆时针(0)方向绘制。
+0.00001,80.00001Z    x y是圆弧终点的坐标,由于坐标重合不能绘制，所以要偏移一点坐标
+-->

@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="160dp"
+    android:viewportWidth="160"
+    android:viewportHeight="160">
+    <path
+        android:pathData="M0,80
+        Q 40,0 80,80
+        T160,80"
+        android:strokeColor="#8fafdb" android:strokeWidth="2"/>
+
+    <!-- 辅助查看的线（斜率）1 -->
+    <path
+        android:pathData="M0,80
+        L40,0 80,80"
+        android:strokeColor="#ff0000" android:strokeWidth="1" android:strokeAlpha="0.5"/>
+
+    <!-- 辅助查看的线（斜率）2 -->
+    <path
+        android:pathData="M80,80
+        L120,160 160,80"
+        android:strokeColor="#ffff00"  android:strokeWidth="1" android:strokeAlpha="0.5"/>
+</vector>
+
+<!--
+pathData="="Q x1 y1, x y" // 控制点 (x1,y1)，终点 (x,y) 大写Q绝对位置 小写q相对位置
+pathData="Q x1 y1, x y T x y" 	// 终点 T(x y)，控制点通过前面的Q命令计算得出
+-->
