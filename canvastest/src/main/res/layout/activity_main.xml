@@ -7,6 +7,11 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".MainActivity">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="基础图形绘制"
+        android:onClick="base"/>
 
     <Button
         android:layout_width="wrap_content"

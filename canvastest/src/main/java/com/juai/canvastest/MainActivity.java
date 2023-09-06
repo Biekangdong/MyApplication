@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void base(View view) {
+        startActivity(new Intent(this,CanvasBaseActivity.class));
+    }
     public void plt(View view) {
         startActivity(new Intent(this,PltDrawActivity.class));
     }
