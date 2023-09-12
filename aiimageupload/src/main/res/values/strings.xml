@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">AiImageUpload</string>
+
+    <string name="photo">图库</string>
+    <string name="camera">相机</string>
+    <string name="changeface">人脸互换</string>
+    <string name="unknown">待定</string>
+    <string name="addface">选择人脸图片</string>
+    <!-- process start -->
+    <string name="gray">灰色</string>
+    <string name="face_recognition">人脸识别</string>
+    <string name="sketch">素描</string>
+    <string name="binaryzation">黑白</string>
+    <string name="outline">轮廓</string>
+    <string name="reminiscence">怀旧</string>
+    <string name="cartoon">连环画</string>
+    <string name="spread">原图</string>
+    <string name="casting">熔铸</string>
+    <string name="frozen">冰冻</string>
+    <string name="embossment">浮雕色</string>
 </resources>

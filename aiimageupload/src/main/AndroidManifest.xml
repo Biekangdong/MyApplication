@@ -7,9 +7,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <!--Android 13版本适配，细化存储权限-->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
 
     <application
-        android:name=".MyApp"
+        android:name=".application.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,6 +28,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".meitu.MeituAiActivity"/>
+        <activity android:name=".icc.ICCActivity"/>
+        <activity android:name=".opcv.OpenCVActivity"/>
+        <activity android:name=".opcv.IniyializeActivity"/>
+        <activity android:name=".opcv.FaceActivity"/>
+        <activity android:name=".opcv.ProcessActivity"/>
+        <activity android:name=".pixels.BitmapPixelsActivity"/>
+
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="Embedded JDK" />
+        <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -34,6 +34,7 @@
             <option value="$PROJECT_DIR$/launchericon" />
             <option value="$PROJECT_DIR$/nativelib" />
             <option value="$PROJECT_DIR$/nfc" />
+            <option value="$PROJECT_DIR$/opencvsdk" />
             <option value="$PROJECT_DIR$/reflect" />
             <option value="$PROJECT_DIR$/rxjava" />
             <option value="$PROJECT_DIR$/schemetest" />

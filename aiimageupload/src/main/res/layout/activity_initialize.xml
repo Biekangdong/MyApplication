@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/iv_initialize_face"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/face"
+                android:clickable="true"
+                />
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_below="@id/iv_initialize_face"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/changeface"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/iv_initialize_photo1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/photo"
+                android:clickable="true"
+                />
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_below="@id/iv_initialize_photo1"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/unknown"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/iv_initialize_camera"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/camera"
+                android:clickable="true"
+                />
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_below="@id/iv_initialize_camera"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/camera"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/iv_initialize_photo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/photo"
+                android:clickable="true"
+                />
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_below="@id/iv_initialize_photo"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/photo"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

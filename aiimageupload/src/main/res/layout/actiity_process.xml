@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/iv_process_back"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/back"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/iv_process_save"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/save"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_weight="8"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        >
+
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:id="@+id/iv_process_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/background"
+            />
+
+        <ImageButton
+            android:id="@+id/iv_process_contrast"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/contrast"
+            android:clickable="true"
+            />
+
+
+
+    </RelativeLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/horizontalScrollView">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button_initial"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:textSize="20sp"
+                android:text="@string/spread" />
+            <Button
+                android:id="@+id/button_gray"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                
+                android:textSize="20sp"
+                android:text="@string/gray" />
+            <Button
+                android:id="@+id/button_face_recognition"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                
+                android:textSize="20sp"
+                android:text="@string/face_recognition" />
+            <Button
+                android:id="@+id/button_sketch"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                
+                android:textSize="20sp"
+                android:text="@string/sketch" />
+            <Button
+                android:id="@+id/button_binaryzation"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:textSize="20sp"
+                
+                android:text="@string/binaryzation" />
+            <Button
+                android:id="@+id/button_outline"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:textSize="20sp"
+                
+                android:text="@string/outline" />
+            <Button
+                android:id="@+id/button_reminiscence"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                
+                android:textSize="20sp"
+                android:text="@string/reminiscence" />
+            <Button
+                android:id="@+id/button_cartoon"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                
+                android:textSize="20sp"
+                android:text="@string/cartoon" />
+
+            <Button
+                android:id="@+id/button_casting"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:textSize="20sp"
+                
+                android:text="@string/casting" />
+            <Button
+                android:id="@+id/button_frozen"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:textSize="20sp"
+                
+                android:text="@string/frozen" />
+            <Button
+                android:id="@+id/button_embossment"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:textSize="20sp"
+                
+                android:text="@string/embossment" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

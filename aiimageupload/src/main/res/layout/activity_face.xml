@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/iv_face_back"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/back"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/iv_face_save"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/save"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/left_image_view"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:src="@mipmap/addface" />
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/left_image_view"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/addface"
+                android:textSize="25sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/right_image_view"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/addface"
+                android:clickable="true"
+                />
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_below="@id/right_image_view"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/addface"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/face_changeface"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/changeface"
+            android:clickable="true"
+            />
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/face_changeface"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="@string/changeface"
+            />
+    </RelativeLayout>
+
+</LinearLayout>
