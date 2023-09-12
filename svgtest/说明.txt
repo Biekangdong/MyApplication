@@ -1,0 +1,147 @@
+SVG 的定义和历史
+SVG 是可缩放矢量图形(Scalable Vector Graphics)的缩写，它是一种用于描述二维矢量图形的 XML 标记语言。与传统的栅格图像不同，SVG 图像可以无限缩放而不会失真，同时也支持交互和动画等特性。
+
+SVG 最早于 1999 年由 W3C 发布，用于在 Web 上展示矢量图形，并于 2001 年正式成为标准。在过去的二十多年中，SVG 经历了多次更新和改进，增加了更多的功能和特性，如动画、交互等，并逐渐得到广泛的应用。
+
+SVG 2.0 于 2016 年 9 月 15 日成为 W3C 候选推荐标准，最新草案于 2020 年 5 月 26 日发布。
+
+SVG 的优点和缺点
+SVG 的优点包括：
+
+矢量图形缩放不会失真(像素点数量不变而导致图像出现模糊、锯齿等)，而光栅图形(PNG、JPG)缩放会导致失真。
+矢量图形：基于矢量的点、线、形状和数学公式来构建的图形，该图形是没有像素的，放大缩小是不会失真的。
+光栅图形：由像素点构建的图像——微小的彩色方块，大量像素点可以形成高清图像，比如照片。图像像素越多，质量越高。
+其他优点：灵活(JS 和 CSS 操作)；支持动画；轻量(尺寸小)；可打印(不会失真)；利于 SEO(会被搜索引擎索引)；可压缩；易于编辑等。
+SVG 的缺点包括：
+
+不适和高清图片制作(非像素级渲染)；
+SVG 图像变得复杂时，加载会比较慢；
+存在部分浏览器兼容问题。
+SVG 的应用场景
+SVG 非常适合显示矢量徽标(Logo)、图标(ICON)和其他几何设计。
+SVG 适合应用在需适配多种尺寸的屏幕上展示，因为SVG的扩展性更好。
+当需要创建简单的动画时，SVG 是一种理想的格式。
+SVG 可以与 JS 交互来制作线条动画、过渡和其他复杂的动画。
+SVG 可以与 CSS 动画交互，也可以使用自己内置的 SMIL 动画。
+SVG 也非常适合制作各种图表(条形图、折线图、饼图、散点图等等)，以及大屏可视化页面开发。
+SVG 的文件结构和语法规则
+SVG 的文件结构和语法规则包括以下几点：
+
+文件格式：SVG 文件是一种基于 XML 语法的文本文件，以 .svg 或 .svgz 为后缀名。其中，.svg 是未压缩的文本格式，而 .svgz 是经过压缩的二进制格式。
+XML声明：SVG文件必须以XML声明开始，指定XML版本和字符集。例如：
+<?xml version="1.0" encoding="UTF-8"?>
+命名空间：SVG使用命名空间来区分不同元素和属性的定义和作用(现代浏览器会默认添加)。SVG 默认命名空间为 "http://www.w3.org/2000/svg" ，可以通过 xmlns 属性来指定和扩展其他命名空间。例如：
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+根元素 SVG 文件必须包含一个根元素 <svg>，表示图形容器的大小和属性。其中，width 和 height 属性指定画布的宽度和高度，viewBox 属性指定可视范围的位置和大小。
+元素和属性 SVG 文件中包含多个元素和属性，用于描述和绘制图形。常见的元素包括 <rect>、<circle>、<line>、<path> 等，常见的属性包括 fill、stroke、stroke-width、transform 等。
+嵌套和顺序 SVG 元素可以嵌套在其他元素中，形成复杂的图形结构。元素的顺序和层次决定了它们的显示顺序和遮挡关系。
+图形绘制基础
+SVG 坐标系和单位
+SVG 使用的坐标系统(网格系统)和 Canvas 的差不多(笛卡尔坐标系)。坐标系是以左上角为 (0,0) 坐标原点，坐标以像素为单位，x 轴正方向是向右，y 轴正方向是向下。
+
+SVG 坐标系统，在没有明确指定单位时，默认以像素为单位，我们也可以手动指明坐标系的单位。
+
+SVG 坐标系分为视口坐标系和用户坐标系：
+
+视口坐标系(视口-viewport)：视口坐标系是在视口上建立的坐标系，原点在视口左上角的点(0, 0)，x轴正向向右，y轴正向下。
+
+用户坐标系(视图框-viewBox)：用户坐标系是建立在 SVG 视口上的坐标系。该坐标系最初与视口坐标系相同——它的原点位于视口的左上角。使用 viewBox 属性，可以修改初始用户坐标系，使其不再与视口坐标系相同。
+
+SVG 常见形状和元素
+常见的 SVG 形状包括：矩形(rect)、圆形(circle)、椭圆形(ellipse)、线段(line)、折线(polyline)、多边形(polygon)
+
+常见的 SVG 元素还包括：
+
+path：路径
+image：图片
+text、tspan：文字
+g 、defs、use、symbols：图形组合和复用
+SVG 路径和路径命令
+在 SVG 中，可以使用路径 <path> 来描述复杂的图形。路径由一系列的路径命令组成，常用的路径命令包括：M(移动到)、L(画直线)、Z(关闭路径)、H(水平线)、V(垂直线)、C(贝塞尔曲线)等。
+
+SVG 填充和描边效果
+使用属性 fill(填充) 和 stroke(描边)，其中描边属性中 stroke-dasharray(将虚线类型应用在边框上)和 stroke-dashoffset(指定在dasharray模式下路径的偏移量)是 SVG 路径动画的应用原理。
+
+填充和描边也能使用 css 来进行控制，其 css 样式优先级为：
+
+内联的 style > defs 中的 style > 外部 / head 内部 > 属性 fill
+
+SVG 渐变和滤镜效果
+SVG 渐变有两种类型：线性渐变和径向渐变
+
+线性渐变使用 linearGradient 和 stop 元素，例如：
+
+<linearGradient id="gradient1">
+  <stop offset="0%" stop-color="red"></stop>
+  <stop offset="50%" stop-color="green"></stop>
+  <stop offset="100%" stop-color="blue"></stop>
+</linearGradient>
+滤镜效果通过在 defs 中定义，比如定义一个高斯模糊效果：
+
+<defs>
+	<!-- 高斯模糊效果 -->
+	<filter id="blurFilter">
+	  <feGaussianBlur stdDeviation="8"></feGaussianBlur>
+	</filter>
+  </defs>
+SVG 的形变操作
+SVG 的形变支持平移(translate)、旋转(rotate)等，注意：形变会修改坐标系，SVG 渲染是先形变修改了坐标系后，根据新坐标系再设置元素 xy 坐标。
+
+SVG 的描边动画
+原理为 stroke-dasharray(描边虚线) 和 stroke-dashoffset(虚线偏移量) 属性的设置。将描边设置为虚线，接着将描边偏移到不可见处，通过动画让描边慢慢变为可见，这样就产生了动画效果了。例如：
+
+#line {
+/* 指定为虚线，300px大于或等于路径长度，虚线和偏移量大小会影响动画速度*/
+	stroke-dasharray: 300px;
+	/* 可见 */
+	stroke-dashoffset: 300px;
+	animation: line1Move 2s linear forwards;
+}
+@keyframes line1Move {
+	100% {
+	/* 可见 */
+	stroke-dashoffset: 0px;
+	}
+}
+支持 stroke 属性的元素都能实现该动画，比如：path、ellipse、polyline 等。
+
+动画和交互
+SVG 动画的实现方式
+用 JS 脚本实现：通过各种处理 SVG 的 JavaScript 库实现动画和交互效果。
+
+用 CSS 样式实现：主要是使用 CSS3 的动画属性。
+
+用 SMIL 实现：一种基于 SMIL 语言实现的 SVG 动画。
+
+SMIL(Synchronized Multimedia Integration Language 同步多媒体集成语言，是W3C推荐的可扩展标记语言，用于描述多媒体演示)
+
+SVG 的 SMIL 动画元素
+SVG 中支持 SMIL 动画的元素：
+
+set：经过特定时间间隔后，将属性设置为某个值(不是过度动画效果)。
+animate：给某个属性创建过度动画效果。需将animate元素嵌套在要应用动画的元素内。
+animateTransform：指定目标元素的形变(transform)属性，从而允许控制元素的平移、旋转、缩放或倾斜动画(类似于 CSS3 的形变)。
+animateMotion：定义了一个元素如何沿着运动路径进行移动。
+SVG 动画库-Snap.svg
+Snap.svg 是一个专门用于处理 SVG 的 JavaScript 库 ( 类似jQuery )。
+
+SVG 动画库-GSAP 动画库
+GSAP 全称是( GreenSock Animation Platform)GreenSock 动画平台。
+GSAP 是一个强大的 JavaScript 动画库，可让开发人员轻松的制作各种复杂的动画。
+与 Snap.svg 不一样，GSAP 无论是 HTML 元素、还是 SVG、或是 Vue、React 组件的动画，都可以满足你的需求。
+
+
+
+
+
+M = moveto 移动到某点。
+L = lineto 画一条直线到某点。
+H = horizontal lineto 画一条水平线到某点。
+V = vertical lineto 画一条垂直线到某点。
+Q = quadratic Bézier curveto 二次贝塞尔曲线
+T = smooth quadratic Bézier curveto 平滑二次贝塞尔曲线
+C = curveto 三次贝塞尔曲线
+S = smooth curveto 平滑三次贝塞尔曲线
+A = elliptical Arc 弧形
+Z = closepath 从结束点到开始点画一条直线，形成一个闭合的区域。
