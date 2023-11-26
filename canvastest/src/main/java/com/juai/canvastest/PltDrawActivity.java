@@ -41,7 +41,7 @@ public class PltDrawActivity extends AppCompatActivity {
 
         flContent = (FrameLayout) findViewById(R.id.fl_content);
 
-        String pathName = "1.plt";
+        String pathName = "4.plt";
         new MyReadPointAsyncTask().execute(pathName);
 
     }
@@ -60,6 +60,12 @@ public class PltDrawActivity extends AppCompatActivity {
         String pathName = "3.plt";
         new MyReadPointAsyncTask().execute(pathName);
     }
+
+    public void plt4(View view) {
+        String pathName = "4.plt";
+        new MyReadPointAsyncTask().execute(pathName);
+    }
+
 
     /**
      * 初始化原始坐标数据

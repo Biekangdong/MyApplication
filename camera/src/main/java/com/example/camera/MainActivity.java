@@ -8,6 +8,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.lensun.lensuncustomizpro.R;
+
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -31,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
     //调起相机
     public void camera(View view) {
         startActivity(new Intent(this, CameraActivity.class));
+    }
+
+    //调起相机
+    public void scan(View view) {
+        startActivity(new Intent(this, ScanActivity.class));
     }
 
     //创建线程池

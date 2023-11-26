@@ -186,7 +186,7 @@ namespace cv
 enum WindowFlags {
        WINDOW_NORMAL     = 0x00000000, //!< the user can resize the window (no constraint) / also use to switch a fullscreen window to a normal size.
        WINDOW_AUTOSIZE   = 0x00000001, //!< the user cannot resize the window, the size is constrainted by the image displayed.
-       WINDOW_OPENGL     = 0x00001000, //!< window with opengl support.
+       WINDOW_OPENGL     = 0x00001000, //!< window with tang support.
 
        WINDOW_FULLSCREEN = 1,          //!< change the window to fullscreen.
        WINDOW_FREERATIO  = 0x00000100, //!< the image expends as much as it can (no ratio constraint).
@@ -200,7 +200,7 @@ enum WindowPropertyFlags {
        WND_PROP_FULLSCREEN   = 0, //!< fullscreen property    (can be WINDOW_NORMAL or WINDOW_FULLSCREEN).
        WND_PROP_AUTOSIZE     = 1, //!< autosize property      (can be WINDOW_NORMAL or WINDOW_AUTOSIZE).
        WND_PROP_ASPECT_RATIO = 2, //!< window's aspect ration (can be set to WINDOW_FREERATIO or WINDOW_KEEPRATIO).
-       WND_PROP_OPENGL       = 3, //!< opengl support.
+       WND_PROP_OPENGL       = 3, //!< tang support.
        WND_PROP_VISIBLE      = 4, //!< checks whether the window exists and is visible
        WND_PROP_TOPMOST      = 5, //!< property to toggle normal window being topmost or not
        WND_PROP_VSYNC        = 6  //!< enable or disable VSYNC (in OpenGL mode)

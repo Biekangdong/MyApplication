@@ -10,10 +10,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
 import android.hardware.Camera;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Display;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -29,6 +34,9 @@ import androidx.constraintlayout.widget.Constraints;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.lensun.lensuncustomizpro.R;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -223,6 +231,104 @@ public class CameraActivity extends Activity {
             camera.addCallbackBuffer(data);
         }
     };
+
+    private long startTime = 0;
+    private class Base64AsynTask extends AsyncTask<Void, Void, String> {
+        byte[] data;
+        int width;
+        int height;
+
+        public Base64AsynTask(byte[] data, int width, int height) {
+            this.data = data;
+            this.width = width;
+            this.height = height;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            startTime = System.currentTimeMillis();
+        }
+
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            //旋转
+//            byte[] jpegDataResult = yuv_rotate90(data, width,height );
+//            String base64String = Base64.encodeToString(jpegDataResult, Base64.DEFAULT);
+
+
+            //转NV21
+            YuvImage yuvImage = new YuvImage(data, ImageFormat.NV21, width, height, null);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            yuvImage.compressToJpeg(new Rect(0, 0, width, height), 80, baos);
+            byte[] jpegData = baos.toByteArray();
+            //String base64String = Base64.encodeToString(jpegData, Base64.DEFAULT);
+
+//            //转bitmap
+//            BitmapFactory.Options options = new BitmapFactory.Options();
+//            options.inPreferredConfig = Bitmap.Config.RGB_565;
+//            Bitmap bitmap = BitmapFactory.decodeByteArray(jpegData, 0, jpegData.length, options);
+//            //旋转
+//            Matrix matrix = new Matrix();
+//            matrix.postScale(0.8f, 0.8f);
+//            matrix.setRotate(-90);
+//            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+//
+//
+
+
+//            //转base64
+//            ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, byteArrayOS);
+//            String base64String = Base64.encodeToString(byteArrayOS.toByteArray(), Base64.DEFAULT);
+//
+//            // 释放资源
+//            bitmap.recycle();
+
+            String filePath=saveToImage(jpegData);
+            return filePath;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            long currentTime = System.currentTimeMillis();
+            long bettwen = currentTime - startTime;
+            Log.e("HHH", "onPostExecute: " + bettwen);
+            if (!TextUtils.isEmpty(s)) {
+
+            }else {
+
+            }
+        }
+    }
+
+
+    //保存bitmap到本地
+    public String saveToImage(byte[] imageData) {
+        FileOutputStream fos;
+        try {
+            // SD卡根目录
+            File dir = getExternalFilesDir("print");
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            File picFile = new File(dir, "bitmap.jpg");
+            if (picFile.exists()) {
+                picFile.delete();
+            }
+            fos = new FileOutputStream(picFile);
+            fos.write(imageData);
+            fos.flush();
+            fos.close();
+            return picFile.getAbsolutePath();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * 设置相机参数

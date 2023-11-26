@@ -26,6 +26,7 @@ public class DialogFragmentActivity extends ComponentActivity {
         setContentView(R.layout.activty_dialog_fragment);
     }
 
+
     public void alertdialog(View view) {
         SystemDialogFragment systemDialogFragment=new SystemDialogFragment();
         systemDialogFragment.show(getFragmentManager(),"System");

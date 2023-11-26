@@ -20,8 +20,8 @@ import com.xixia.aiimageupload.R;
 
 public class IniyializeActivity extends AppCompatActivity {
 
-    public static final int REQUEST_PERMISSION_CODE=1;
-    Bitmap photo ;
+    public static final int REQUEST_PERMISSION_CODE = 1;
+    Bitmap photo;
     String uripath;
 
     ImageView iv_initialize_camera;
@@ -31,15 +31,15 @@ public class IniyializeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_initialize);
 
         //第一次时获得权限
         get_SDcard_permission();
 
-        iv_initialize_camera = (ImageView)findViewById(R.id.iv_initialize_camera);
+        iv_initialize_camera = (ImageView) findViewById(R.id.iv_initialize_camera);
         iv_initialize_photo = (ImageView) findViewById(R.id.iv_initialize_photo);
-        go_to_face = (ImageView) findViewById(R.id.iv_initialize_face) ;
+        go_to_face = (ImageView) findViewById(R.id.iv_initialize_face);
         go_to_face.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,8 +64,7 @@ public class IniyializeActivity extends AppCompatActivity {
     }
 
     //获得手机相机和图册的权限
-    public void get_SDcard_permission()
-    {
+    public void get_SDcard_permission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             int checkCallPhonePermission = ContextCompat.checkSelfPermission(IniyializeActivity.this, Manifest.permission.CAMERA);
             int checkWriteSDPermission = ContextCompat.checkSelfPermission(IniyializeActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -80,30 +79,25 @@ public class IniyializeActivity extends AppCompatActivity {
     }
 
 
-    public void goToFace(){
-        Intent intent = new Intent(IniyializeActivity.this,FaceActivity.class);
+    public void goToFace() {
+        Intent intent = new Intent(IniyializeActivity.this, FaceActivity.class);
         startActivity(intent);
     }
 
-    public void goToProcess_camera()
-    {
-        Intent intent = new Intent(IniyializeActivity.this,ProcessActivity.class);
+
+    public void goToProcess_camera() {
+        Intent intent = new Intent(IniyializeActivity.this, ProcessActivity.class);
         String camera_permission = "camera_permission";
-        intent.putExtra("permission",camera_permission);
+        intent.putExtra("permission", camera_permission);
         startActivity(intent);
     }
-    public void goToProcess_photo()
-    {
-        Intent intent = new Intent(IniyializeActivity.this,ProcessActivity.class);
+
+    public void goToProcess_photo() {
+        Intent intent = new Intent(IniyializeActivity.this, ProcessActivity.class);
         String file_permission = "file_permission";
-        intent.putExtra("permission",file_permission);
+        intent.putExtra("permission", file_permission);
         startActivity(intent);
     }
-
-
-
-
-
 
 
 }
