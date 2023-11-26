@@ -21,6 +21,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".dialog.DialogActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".spinner.SpinnerActivity"
             android:screenOrientation="portrait"/>
         <activity

@@ -39,6 +39,15 @@
             android:layout_weight="1"
             android:onClick="plt3"
             android:text="plt3" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:onClick="plt4"
+            android:text="plt4" />
+
     </LinearLayout>
 
     <FrameLayout

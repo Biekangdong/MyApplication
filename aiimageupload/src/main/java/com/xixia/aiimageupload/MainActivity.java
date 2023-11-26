@@ -6,19 +6,14 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.xixia.aiimageupload.facedetector.FaceDetectorActivity;
 import com.xixia.aiimageupload.icc.ICCActivity;
 import com.xixia.aiimageupload.meitu.MeituAiActivity;
+import com.xixia.aiimageupload.opcv.FaceCamera2Activity;
+import com.xixia.aiimageupload.opcv.FaceCamera3Activity;
+import com.xixia.aiimageupload.opcv.FaceCameraActivity;
 import com.xixia.aiimageupload.opcv.OpenCVActivity;
 import com.xixia.aiimageupload.pixels.BitmapPixelsActivity;
-
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.MatOfPoint2f;
-import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,4 +40,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, BitmapPixelsActivity.class));
     }
 
+    public void faceDetectorClick(View view) {
+        startActivity(new Intent(this, FaceDetectorActivity.class));
+    }
+
+    public void faceCameraClick(View view) {
+        Intent intent = new Intent(this, FaceCameraActivity.class);
+        startActivity(intent);
+    }
+
+    public void faceCamera2Click(View view) {
+        Intent intent = new Intent(this, FaceCamera2Activity.class);
+        startActivity(intent);
+    }
+    public void faceCamera3Click(View view) {
+        Intent intent = new Intent(this, FaceCamera3Activity.class);
+        startActivity(intent);
+    }
 }

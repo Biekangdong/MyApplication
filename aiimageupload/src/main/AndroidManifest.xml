@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -34,7 +35,11 @@
         <activity android:name=".opcv.IniyializeActivity"/>
         <activity android:name=".opcv.FaceActivity"/>
         <activity android:name=".opcv.ProcessActivity"/>
+        <activity android:name=".opcv.FaceCameraActivity"/>
+        <activity android:name=".opcv.FaceCamera2Activity"/>
+        <activity android:name=".opcv.FaceCamera3Activity"/>
         <activity android:name=".pixels.BitmapPixelsActivity"/>
+        <activity android:name=".facedetector.FaceDetectorActivity"/>
 
     </application>
 

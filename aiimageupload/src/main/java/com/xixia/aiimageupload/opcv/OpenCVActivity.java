@@ -2,6 +2,7 @@ package com.xixia.aiimageupload.opcv;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +12,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,23 +22,37 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.permissions.PermissionChecker;
+import com.sun.org.apache.xml.internal.utils.StringVector;
 import com.xixia.aiimageupload.PictureSelectorUtils;
 import com.xixia.aiimageupload.R;
 import com.xixia.aiimageupload.icc.ICCActivity;
 
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
+import org.opencv.core.MatOfRect;
 import org.opencv.core.Point;
+import org.opencv.core.Rect;
+import org.opencv.core.RotatedRect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.osgi.OpenCVNativeLoader;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,8 +120,18 @@ public class OpenCVActivity extends Activity {
         ivImage2.setImageBitmap(resultBitmap);
     }
 
-    public void moreClick(View view){
-        startActivity(new Intent(this,IniyializeActivity.class));
+    public void qrcodeClick(View view){
+        Bitmap resultBitmap = QRcodeOpenCVUtils.mainQrcodeDecode(filePath);
+        ivImage2.setImageBitmap(resultBitmap);
+    }
+
+    public void faceClick(View view){
+        Bitmap resultBitmap = detectFace(filePath);
+        ivImage2.setImageBitmap(resultBitmap);
+    }
+
+    public void moreClick(View view) {
+        startActivity(new Intent(this, IniyializeActivity.class));
     }
 
     /**
@@ -129,10 +155,42 @@ public class OpenCVActivity extends Activity {
             @Override
             public void selectResult(String mfilePath) {
                 filePath = mfilePath;
-                Log.e(TAG, "onResult: " + filePath);
                 Glide.with(OpenCVActivity.this).load(filePath).into(ivImage1);
+               String base64String=imageToBase64(new File(filePath));
+                Log.e(TAG, "onResult: " + base64String);
+
             }
         });
+    }
+
+    /**
+     * 将图片转换成Base64编码的字符串
+     */
+    public static String imageToBase64(File file){
+        InputStream is = null;
+        byte[] data = null;
+        String result = null;
+        try{
+            is = new FileInputStream(file);
+            //创建一个字符流大小的数组。
+            data = new byte[is.available()];
+            //写入数组
+            is.read(data);
+            //用默认的编码格式进行编码
+            result = Base64.encodeToString(data,Base64.DEFAULT);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if(null !=is){
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        return result;
     }
 
     /**
@@ -296,7 +354,7 @@ public class OpenCVActivity extends Activity {
      */
     public Bitmap findContours() {
         Bitmap bitmap = BitmapFactory.decodeFile(filePath);
-        Mat dstmat=getOriginMat(bitmap);
+        Mat dstmat = getOriginMat(bitmap);
 //        Mat dstmat = new Mat(bitmap.getHeight(), bitmap.getWidth(), CvType.CV_8UC1);
 //        Utils.bitmapToMat(bitmap, dstmat);
 
@@ -366,4 +424,247 @@ public class OpenCVActivity extends Activity {
 
         return bitmap;
     }
+
+
+//    public static String deCode(Mat img) {
+//        //微信二维码对象，要返回二维码坐标前2个参数必传；后2个在二维码小或不清晰时必传。
+//        WeChatQRCode we = new WeChatQRCode();
+//        List<Mat> points = new ArrayList<Mat>();
+//        //微信二维码引擎解码，返回的valList中存放的是解码后的数据，points中Mat存放的是二维码4个角的坐标
+//        StringVector stringVector = we.detectAndDecode(img);
+//
+//        System.out.println(stringVector.get(0).getString(StandardCharsets.UTF_8));
+//        return stringVector.get(0).getString(StandardCharsets.UTF_8);
+//    }
+
+
+    /**
+     * 提取条形码区域
+     * 1. 原图像大小调整，提高运算效率
+     * 2. 转化为灰度图
+     * 3. 高斯平滑滤波
+     * 4.求得水平和垂直方向灰度图像的梯度差,使用Sobel算子
+     * 5.均值滤波，消除高频噪声
+     * 6.二值化
+     * 7.闭运算，填充条形码间隙
+     * 8. 腐蚀，去除孤立的点
+     * 9. 膨胀，填充条形码间空隙，根据核的大小，有可能需要2~3次膨胀操作
+     * 10.通过findContours找到条形码区域的矩形边界
+     *
+     * @return
+     */
+    public Bitmap getImageDiscriminatePoint() {
+        Bitmap source = BitmapFactory.decodeFile(filePath);
+
+        Mat imageSobelX = new Mat();
+        Mat imageSobelY = new Mat();
+        Mat imageSobelOut = new Mat();
+
+        Mat image = new Mat();
+        Mat imageGray = new Mat();
+        Mat imageGuussian = new Mat();
+
+        Utils.bitmapToMat(source, image);
+
+        //1:调整图片大小
+        Imgproc.resize(image, image, new Size(image.rows() / 4, image.cols() / 4));
+
+        //2:灰度化
+        Imgproc.cvtColor(image, imageGray, Imgproc.COLOR_BGR2GRAY);
+
+        //3:高斯平滑, Imgproc.getGaussianKernel();高斯滤波
+        Imgproc.GaussianBlur(imageGray, imageGuussian, new Size(3, 3), 0);
+
+        //4：求得水平和垂直方向灰度图像的梯度差,使用Sobel算子
+        Mat imageX16S = new Mat();
+        Mat imageY16S = new Mat();
+        Imgproc.Sobel(imageGuussian, imageX16S, CvType.CV_16S, 1, 0, 3, 1, 0, 4);
+        Imgproc.Sobel(imageGuussian, imageY16S, CvType.CV_16S, 0, 1, 3, 1, 0, 4);
+
+
+        Core.convertScaleAbs(imageX16S, imageSobelX, 1, 0);
+        Core.convertScaleAbs(imageY16S, imageSobelY, 1, 0);
+        // imageSobelOut = imageSobelX - imageSobelY;
+
+        Core.addWeighted(imageSobelX, 0.5, imageSobelY, 0.5, 1, imageSobelOut);//计算梯度和
+        //Core.divide(imageSobelX, imageSobelY, imageSobelOut);
+
+
+        //5：均值滤波，消除高频噪声
+        Imgproc.blur(imageSobelOut, imageSobelOut, new Size(3, 3));
+
+
+        //6：二值化
+//        Mat imageSobleOutThreshold = new Mat();
+//        Imgproc.threshold(imageSobelOut, imageSobleOutThreshold, 100, 255, Imgproc.THRESH_BINARY);
+
+        //7.闭运算，填充条形码间隙
+//        Mat  element = Imgproc.getStructuringElement(0, new Size(7, 7));
+//        Imgproc.morphologyEx(imageSobleOutThreshold, imageSobleOutThreshold, Imgproc.MORPH_CLOSE, element);
+
+
+//        //8. 腐蚀，去除孤立的点
+//       // Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(8, 8));
+//        Imgproc.erode(imageSobleOutThreshold, imageSobleOutThreshold, element);
+//
+//        //9. 膨胀，填充条形码间空隙，根据核的大小，有可能需要2~3次膨胀操作
+//        Imgproc.dilate(imageSobleOutThreshold,imageSobleOutThreshold,element);
+
+        image = imageSobelOut;
+
+        //10.通过findContours找到条形码区域的矩形边界
+//        List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+//        Mat hierarcy = new Mat();
+//        Imgproc.findContours(imageSobleOutThreshold, contours, hierarcy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_NONE);
+//
+//        Log.d("-----------------", "求灰度图"+contours.size());
+//        for(int i=0;i<contours.size();i++) {
+        //   Rect rect = Imgproc.boundingRect(contours.get(i));
+//            Log.d("-----------------", "这里知心了"+rect.x+"------"+rect.y+"-----"+rect.width+"-------"+rect.height);
+//            Imgproc.rectangle(image, new Point(rect.x + rect.width, rect.y + rect.height),new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(177));
+//        }
+
+
+        Bitmap idcardBit = Bitmap.createBitmap(image.cols(), image.rows(), Bitmap.Config.RGB_565);//ARGB_8888,RGB_565
+        Utils.matToBitmap(image, idcardBit);
+
+        //腐蚀
+//        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(8, 8));
+//        Imgproc.erode(idcardMat, idcardMat, kernel);
+
+//        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(50, 50));
+//        Imgproc.erode(idcardMat, idcardMat, kernel);
+
+
+//        File file = new File(Environment.getExternalStorageDirectory()+"/AiLingGong/", "test.jpg");
+//        try {
+//            FileOutputStream out = new FileOutputStream(file);
+//            idcardBit.compress(Bitmap.CompressFormat.JPEG, 100, out);
+//            out.flush();
+//            out.close();
+//        } catch (FileNotFoundException e) {
+//            Log.d("-----------------", "111111");
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            Log.d("----------------", "2222222");
+//            e.printStackTrace();
+//        }
+
+
+//        List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+//        Mat hierarcy = new Mat();
+//        Imgproc.findContours(idcardMat, contours, hierarcy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
+//
+//        int idCardNumberY = 0;
+//
+//        for(int i=0;i<contours.size();i++){
+//            Rect rect = Imgproc.boundingRect(contours.get(i));
+//            Imgproc.rectangle(idcardMat, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(255, 0, 0), 3);
+//            if(rect.width > 500 && rect.width/rect.height >= 6){
+//                //这里可能取到多个轮廓噢，“地址的轮廓也可能会进来”，需要简单筛选一下下面的轮廓，（之前bug原因，腐蚀不够高，大量轮廓进来了）
+//                if (idCardNumberY < rect.y) {
+//                    idCardNumberY = rect.y;
+//                    idcardBit = cropDownPart(source, rect.x, rect.y, rect.width, rect.height);
+//                }
+//
+//                File file = new File(Environment.getExternalStorageDirectory()+"/AiLingGong/", "w"+rect.width+"h"+rect.height+".jpg");
+//                try {
+//                    FileOutputStream out = new FileOutputStream(file);
+//                    idcardBit.compress(Bitmap.CompressFormat.JPEG, 100, out);
+//                    out.flush();
+//                    out.close();
+//                } catch (FileNotFoundException e) {
+//                    e.printStackTrace();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+        return idcardBit;
+    }
+
+
+    /**
+     * 检测人脸
+     */
+    private CascadeClassifier mJavaDetector; // OpenCV的人脸检测器
+    private Bitmap detectFace(String filePath) {
+        Bitmap orig = BitmapFactory.decodeFile(filePath);
+
+        Mat rgba = new Mat();
+        Utils.bitmapToMat(orig, rgba); // 把位图对象转为Mat结构
+        //Mat rgba = Imgcodecs.imread(mFilePath); // 从文件路径读取Mat结构
+        //Imgcodecs.imwrite(tempFile.getAbsolutePath(), rgba); // 把Mate结构保存为文件
+        Mat gray = new Mat();
+        Imgproc.cvtColor(rgba, gray, Imgproc.COLOR_RGB2GRAY); // 全彩矩阵转灰度矩阵
+        // 下面检测并显示人脸
+        MatOfRect faces = new MatOfRect();
+        int absoluteFaceSize = 0;
+        int height = gray.rows();
+        if (Math.round(height * 0.2f) > 0) {
+            absoluteFaceSize = Math.round(height * 0.2f);
+        }
+        if (mJavaDetector != null) { // 检测器开始识别人脸
+            mJavaDetector.detectMultiScale(gray, faces, 1.1, 2, 2,
+                    new Size(absoluteFaceSize, absoluteFaceSize), new Size());
+        }
+        Rect[] faceArray = faces.toArray();
+        for (Rect rect : faceArray) { // 给找到的人脸标上相框
+            Imgproc.rectangle(rgba, rect.tl(), rect.br(), new Scalar(0, 255, 0, 255), 3);
+            Log.d(TAG, rect.toString());
+        }
+        Bitmap mark = Bitmap.createBitmap(orig.getWidth(), orig.getHeight(), Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(rgba, mark); // 把Mat结构转为位图对象
+
+        return mark;
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!OpenCVLoader.initDebug()) {
+            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, mLoaderCallback);
+        } else {
+            Log.d(TAG, "OpenCV library found inside package. Using it!");
+            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
+        }
+    }
+
+    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            if (status == LoaderCallbackInterface.SUCCESS) {
+                Log.d(TAG, "OpenCV loaded successfully");
+                // 在OpenCV初始化完成后加载so库
+                //System.loadLibrary("detection_based_tracker");
+                File cascadeDir = getDir("cascade", Context.MODE_PRIVATE);
+                File cascadeFile = new File(cascadeDir, "lbpcascade_frontalface.xml");
+                // 从应用程序资源加载级联文件
+                try (InputStream is = getResources().openRawResource(R.raw.lbpcascade_frontalface);
+                     FileOutputStream os = new FileOutputStream(cascadeFile)) {
+                    byte[] buffer = new byte[4096];
+                    int bytesRead;
+                    while ((bytesRead = is.read(buffer)) != -1) {
+                        os.write(buffer, 0, bytesRead);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                // 根据级联文件创建OpenCV的人脸检测器
+                mJavaDetector = new CascadeClassifier(cascadeFile.getAbsolutePath());
+                if (mJavaDetector.empty()) {
+                    Log.d(TAG, "Failed to load cascade classifier");
+                    mJavaDetector = null;
+                } else {
+                    Log.d(TAG, "Loaded cascade classifier from " + cascadeFile.getAbsolutePath());
+                }
+                cascadeDir.delete();
+            } else {
+                super.onManagerConnected(status);
+            }
+        }
+    };
+
 }

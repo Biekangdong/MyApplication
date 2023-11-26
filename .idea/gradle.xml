@@ -22,6 +22,8 @@
             <option value="$PROJECT_DIR$/canvastest" />
             <option value="$PROJECT_DIR$/cardviewswitch" />
             <option value="$PROJECT_DIR$/chart" />
+            <option value="$PROJECT_DIR$/colorpicker" />
+            <option value="$PROJECT_DIR$/colorpickerview" />
             <option value="$PROJECT_DIR$/coordinatorlayout" />
             <option value="$PROJECT_DIR$/customerlauncher3" />
             <option value="$PROJECT_DIR$/dialogapplication" />
@@ -42,6 +44,7 @@
             <option value="$PROJECT_DIR$/servicetest" />
             <option value="$PROJECT_DIR$/signalr" />
             <option value="$PROJECT_DIR$/svgtest" />
+            <option value="$PROJECT_DIR$/tangnativeapp" />
             <option value="$PROJECT_DIR$/usbmanager" />
             <option value="$PROJECT_DIR$/utils" />
             <option value="$PROJECT_DIR$/voicechanger" />
