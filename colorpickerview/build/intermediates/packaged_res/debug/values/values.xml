@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AlphaSlideBar">
+    <!-- sets a customized selector drawable. -->
+    <attr format="integer" name="selector_AlphaSlideBar"/>
+    <!-- sets a color of the border. -->
+    <attr format="color" name="borderColor_AlphaSlideBar"/>
+    <!-- sets a size of the border. -->
+    <attr format="integer" name="borderSize_AlphaSlideBar"/>
+  </declare-styleable>
+    <declare-styleable name="AlphaTileView">
+    <!-- sets width/height square size of the title. -->
+    <attr format="integer" name="tileSize"/>
+    <!-- a color of the odd location in patterns. -->
+    <attr format="color" name="tileOddColor"/>
+    <!-- a color of the even location in patterns. -->
+    <attr format="color" name="tileEvenColor"/>
+  </declare-styleable>
+    <declare-styleable name="BrightnessSlideBar">
+    <!-- sets a customized selector drawable. -->
+    <attr format="integer" name="selector_BrightnessSlider"/>
+    <!-- sets a color of the border. -->
+    <attr format="color" name="borderColor_BrightnessSlider"/>
+    <!-- sets a size of the border. -->
+    <attr format="integer" name="borderSize_BrightnessSlider"/>
+  </declare-styleable>
+    <declare-styleable name="ColorPickerView">
+    <!-- sets a drawable of the palette. the default palette is HSV drawable palette built by HSV (hue, saturation, value) color model. -->
+    <attr format="reference" name="palette"/>
+    <!-- sets a drawable of the selector. -->
+    <attr format="integer" name="selector"/>
+    <attr format="boolean" name="selector_is_show"/>
+    <!-- sets a width/height square size of the selector. -->
+    <attr format="dimension" name="selector_size"/>
+    <!-- sets an alpha of thr selector. -->
+    <attr format="float" name="alpha_selector"/>
+    <!-- sets an alpha of the flag. -->
+    <attr format="float" name="alpha_flag"/>
+    <!-- sets a preference name for persisting and restoring status of the selector and slideBars. -->
+    <attr format="string" name="preferenceName"/>
+    <!-- sets a debounce duration of the invoking color listener. -->
+    <attr format="integer" name="debounceDuration"/>
+    <!-- set an initial position of the selector using a specific color. This attribute will work with only a default HSV palette. -->
+    <attr format="color" name="initialColor"/>
+    <!-- sets the color listener's trigger action mode. -->
+    <attr format="enum" name="actionMode">
+      <!-- trigger the listener always when tapped by a user.  -->
+      <enum name="always" value="0"/>
+      <!-- trigger the listener only the last color when user release tapping. -->
+      <enum name="last" value="1"/>
+    </attr>
+  </declare-styleable>
+</resources>

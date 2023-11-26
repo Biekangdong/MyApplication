@@ -1,0 +1,44 @@
+R_DEF: Internal format may change without notice
+local
+anim fade_in
+anim fade_out
+attr? actionMode
+attr? alpha_flag
+attr? alpha_selector
+attr? borderColor_AlphaSlideBar
+attr? borderColor_BrightnessSlider
+attr? borderSize_AlphaSlideBar
+attr? borderSize_BrightnessSlider
+attr? debounceDuration
+attr? initialColor
+attr? palette
+attr? preferenceName
+attr? selector
+attr? selector_AlphaSlideBar
+attr? selector_BrightnessSlider
+attr? selector_is_show
+attr? selector_size
+attr? tileEvenColor
+attr? tileOddColor
+attr? tileSize
+drawable ic_bubble_big
+drawable ic_bubble_small
+drawable wheel
+id alphaSlideBar
+id alphaSlideBarFrame
+id always
+id brightnessSlideBar
+id brightnessSlideBarFrame
+id bubble
+id colorPickerView
+id colorPickerViewFrame
+id last
+id layout
+id space_bottom
+layout dialog_colorpicker
+layout flag_bubble
+mipmap ic_bubble_circle
+styleable AlphaSlideBar selector_AlphaSlideBar borderColor_AlphaSlideBar borderSize_AlphaSlideBar
+styleable AlphaTileView tileSize tileOddColor tileEvenColor
+styleable BrightnessSlideBar selector_BrightnessSlider borderColor_BrightnessSlider borderSize_BrightnessSlider
+styleable ColorPickerView palette selector selector_is_show selector_size alpha_selector alpha_flag preferenceName debounceDuration initialColor actionMode
