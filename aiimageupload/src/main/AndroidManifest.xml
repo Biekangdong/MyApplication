@@ -35,9 +35,9 @@
         <activity android:name=".opcv.IniyializeActivity"/>
         <activity android:name=".opcv.FaceActivity"/>
         <activity android:name=".opcv.ProcessActivity"/>
-        <activity android:name=".opcv.FaceCameraActivity"/>
+        <activity android:name=".camera1.FaceCameraActivity"/>
         <activity android:name=".opcv.FaceCamera2Activity"/>
-        <activity android:name=".opcv.FaceCamera3Activity"/>
+        <activity android:name=".camera2.FaceCamera3Activity"/>
         <activity android:name=".pixels.BitmapPixelsActivity"/>
         <activity android:name=".facedetector.FaceDetectorActivity"/>
 

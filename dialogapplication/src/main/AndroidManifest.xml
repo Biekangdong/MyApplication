@@ -36,6 +36,14 @@
             android:name=".floatwindows.FloatWindowsActivity"
             android:screenOrientation="portrait"/>
 
+        <activity
+            android:name=".toast.ToastActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".popwindow.PopupwindowActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

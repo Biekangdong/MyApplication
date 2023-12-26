@@ -1,4 +1,4 @@
-package com.xixia.aiimageupload.opcv;
+package com.xixia.aiimageupload.camera1;
 
 import android.Manifest;
 import android.app.Activity;

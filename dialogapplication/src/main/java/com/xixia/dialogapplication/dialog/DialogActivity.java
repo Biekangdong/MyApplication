@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.xixia.dialogapplication.R;
+import com.xixia.dialogapplication.popwindow.TestPopupWindow;
 
 /**
  * @ClassName DialogActivity
@@ -33,8 +34,8 @@ public class DialogActivity extends Activity {
        new Handler().postDelayed(new Runnable() {
            @Override
            public void run() {
-               CustomProgressDialog customProgressDialog2=new CustomProgressDialog(DialogActivity.this,R.style.Custom_Progress,"22222");
-               customProgressDialog2.show();
+               TestPopupWindow testPopupWindow = new TestPopupWindow(DialogActivity.this);
+               testPopupWindow.showAsDropDown(view);
            }
        },1000);
     }

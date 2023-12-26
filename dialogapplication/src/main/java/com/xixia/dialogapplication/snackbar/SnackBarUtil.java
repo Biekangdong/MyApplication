@@ -38,7 +38,7 @@ public class SnackBarUtil {
         //设置SnackBar的显示位置
         //ViewGroup.LayoutParams layoutParams = snackbarLayout.getLayoutParams();
         FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(dip2px(activity,260),dip2px(activity,32)); // 将原来Snackbar的宽高传入新的LayoutParams
-        flp.gravity = Gravity.CENTER | Gravity.BOTTOM; // 设置显示位置
+        flp.gravity = Gravity.CENTER; // 设置显示位置
         flp.bottomMargin = dip2px(activity,8);
         ((View) snackbarLayout).setLayoutParams(flp);
         //获取自定义布局

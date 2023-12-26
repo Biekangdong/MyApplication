@@ -38,4 +38,15 @@
         android:onClick="floatwindows"
         android:text="floatwindows" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toastActivity"
+        android:text="toastActivity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="popupActivity"
+        android:text="popupActivity" />
 </LinearLayout>

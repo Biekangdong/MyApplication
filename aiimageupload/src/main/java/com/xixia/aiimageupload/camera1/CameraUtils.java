@@ -1,4 +1,4 @@
-package com.xixia.aiimageupload;
+package com.xixia.aiimageupload.camera1;
 
 /**
  * @ClassName CameraUtils

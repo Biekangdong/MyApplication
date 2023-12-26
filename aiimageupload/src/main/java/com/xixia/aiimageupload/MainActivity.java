@@ -10,8 +10,8 @@ import com.xixia.aiimageupload.facedetector.FaceDetectorActivity;
 import com.xixia.aiimageupload.icc.ICCActivity;
 import com.xixia.aiimageupload.meitu.MeituAiActivity;
 import com.xixia.aiimageupload.opcv.FaceCamera2Activity;
-import com.xixia.aiimageupload.opcv.FaceCamera3Activity;
-import com.xixia.aiimageupload.opcv.FaceCameraActivity;
+import com.xixia.aiimageupload.camera2.FaceCamera3Activity;
+import com.xixia.aiimageupload.camera1.FaceCameraActivity;
 import com.xixia.aiimageupload.opcv.OpenCVActivity;
 import com.xixia.aiimageupload.pixels.BitmapPixelsActivity;
 
