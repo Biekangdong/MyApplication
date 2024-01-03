@@ -11,7 +11,7 @@
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_bob_nativelib_NativeLib_stringFromJNI(
         JNIEnv* env,
-        jobject /* this */) {
+        jobject) {
     std::string hello = "Hello from C++";
     LOGE("Hello from C++");
     return env->NewStringUTF(hello.c_str());
